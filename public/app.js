@@ -42,6 +42,7 @@
     return null;
   }
 
+  window.__scDecide = decide;
   const out = document.getElementById("demo-out");
   const input = document.getElementById("demo-in");
   const pill = document.getElementById("layout");
@@ -49,9 +50,20 @@
   const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
   let fixedCount = 0, lang = "EN";
 
+  const kb = document.getElementById("kb");
+  const keyEls = new Map();
+  if (kb) kb.querySelectorAll(".k").forEach(k => keyEls.set(k.dataset.k, k));
+  const enOf = c => { c = c.toLowerCase(); if (keyEls.has(c)) return c; const e = toEn.get(c); return e ? e.toLowerCase() : null; };
+  function press(ch) {
+    const k = keyEls.get(enOf(ch) ?? "");
+    if (!k) return;
+    k.classList.remove("on"); void k.offsetWidth; k.classList.add("on");
+    clearTimeout(k._t); k._t = setTimeout(() => k.classList.remove("on"), 180);
+  }
   function setLang(l) {
     if (l === lang) return;
     lang = l; pill.textContent = l;
+    if (kb) kb.dataset.layout = l === "EN" ? "en" : "uk";
     pill.classList.remove("flash"); void pill.offsetWidth; pill.classList.add("flash");
     setTimeout(() => pill.classList.remove("flash"), 320);
   }
@@ -88,15 +100,100 @@
     let i = 0;
     const step = () => {
       if (!playing) return;
-      if (i <= scriptText.length) { render(scriptText.slice(0, i)); i++; timer = setTimeout(step, reduce ? 0 : 70 + Math.random() * 60); }
-      else timer = setTimeout(() => { fixedCount = 0; play(); }, 2600);
+      if (i <= scriptText.length) { render(scriptText.slice(0, i)); if (i > 0) press(scriptText[i - 1]); i++; timer = setTimeout(step, reduce ? 0 : 70 + Math.random() * 60); }
+      else timer = setTimeout(() => { fixedCount = 0; setLang("EN"); play(); }, 2600);
     };
     if (reduce) { render(scriptText); return; }
     step();
   }
-  function stop() { if (!playing) return; playing = false; clearTimeout(timer); fixedCount = 0; render(input.value); }
+  function stop() { if (!playing) return; playing = false; clearTimeout(timer); fixedCount = 0; setLang("EN"); render(input.value); }
   input.addEventListener("focus", stop);
-  input.addEventListener("input", () => { stop(); render(input.value); });
+  let prevLen = 0;
+  input.addEventListener("input", () => { stop(); const v = input.value; if (v.length > prevLen) press(v[v.length - 1]); prevLen = v.length; render(v); });
   input.addEventListener("blur", () => render(input.value, false));
   play();
+})();
+
+/* ---------- Live release info from GitHub ---------- */
+(() => {
+  const KEY = "sc-release-v1";
+  const fmtSize = b => (b / 1048576).toLocaleString("uk-UA", { maximumFractionDigits: 1 }) + " МБ";
+  const fmtDate = d => new Date(d).toLocaleDateString("uk-UA", { day: "numeric", month: "long", year: "numeric" });
+  function apply(r) {
+    if (!r || !r.tag_name) return;
+    const v = r.tag_name.replace(/^v/, "");
+    const assets = r.assets || [];
+    const setup = assets.find(a => a.name === "SwitchcraftSetup.exe") || assets.find(a => /setup.*\.exe$/i.test(a.name));
+    const zip = assets.find(a => /portable.*\.zip$/i.test(a.name));
+    if (setup) document.querySelectorAll('[data-dl="setup"]').forEach(a => a.href = setup.browser_download_url);
+    if (zip) document.querySelectorAll('[data-dl="portable"]').forEach(a => a.href = zip.browser_download_url);
+    document.querySelectorAll('[data-rel="version"]').forEach(e => e.textContent = "Версія " + v);
+    document.querySelectorAll('[data-rel="vnum"]').forEach(e => e.textContent = v);
+    if (setup) document.querySelectorAll('[data-rel="size"]').forEach(e => e.textContent = fmtSize(setup.size));
+    if (r.published_at) document.querySelectorAll('[data-rel="date"]').forEach(e => e.textContent = " · вийшла " + fmtDate(r.published_at));
+  }
+  try { const c = JSON.parse(sessionStorage.getItem(KEY) || "null"); if (c && Date.now() - c.t < 36e5) return apply(c.r); } catch {}
+  fetch("https://api.github.com/repos/phantasmat2018/Switchcraft-AI/releases/latest", { headers: { Accept: "application/vnd.github+json" } })
+    .then(r => r.ok ? r.json() : null)
+    .then(r => { if (!r) return; const slim = { tag_name: r.tag_name, published_at: r.published_at, assets: (r.assets || []).map(a => ({ name: a.name, size: a.size, browser_download_url: a.browser_download_url })) }; apply(slim); try { sessionStorage.setItem(KEY, JSON.stringify({ t: Date.now(), r: slim })); } catch {} })
+    .catch(() => {});
+})();
+
+/* ---------- Non-Windows visitors ---------- */
+(() => {
+  const ua = navigator.userAgent;
+  const isWin = /Windows NT/.test(ua) && !/Windows Phone/.test(ua);
+  const el = document.getElementById("notwin");
+  if (el && !isWin) el.hidden = false;
+})();
+
+/* ---------- Copy buttons ---------- */
+(() => {
+  document.addEventListener("click", async e => {
+    const b = e.target.closest("[data-copy],[data-copy-target]");
+    if (!b) return;
+    const text = b.dataset.copy ?? document.getElementById(b.dataset.copyTarget)?.innerText ?? "";
+    try { await navigator.clipboard.writeText(text); } catch { return; }
+    const span = b.querySelector("span"); const prev = span?.textContent;
+    b.classList.add("done"); if (span) span.textContent = "Скопійовано";
+    setTimeout(() => { b.classList.remove("done"); if (span) span.textContent = prev; }, 1600);
+  });
+})();
+
+/* ---------- Hotkey practice ---------- */
+(() => {
+  const rows = new Map([...document.querySelectorAll(".hotkeys li[data-code]")].map(li => [li.dataset.code, li]));
+  if (!rows.size || !matchMedia("(pointer: fine)").matches) { document.querySelector(".kb-hint")?.remove(); return; }
+  window.addEventListener("keydown", e => {
+    if (!(e.ctrlKey && e.altKey)) return;
+    const li = rows.get(e.code);
+    if (!li) return;
+    if (e.target.closest && e.target.closest("input, textarea")) return;
+    e.preventDefault();
+    li.classList.remove("hit"); void li.offsetWidth; li.classList.add("hit");
+    clearTimeout(li._t); li._t = setTimeout(() => li.classList.remove("hit"), 1400);
+  });
+})();
+
+/* ---------- Password-field proof ---------- */
+(() => {
+  const decide = window.__scDecide;
+  const t = document.getElementById("pf-text"), ts = document.getElementById("pf-text-s");
+  const p = document.getElementById("pf-pass"), ps = document.getElementById("pf-pass-s");
+  if (!decide || !t || !p) return;
+  t.addEventListener("input", () => {
+    const v = t.value;
+    if (!/\s$/.test(v)) return;
+    const words = v.split(/(\s+)/);
+    let changed = 0;
+    const fixed = words.map(w => { if (/^\s*$/.test(w)) return w; const d = decide(w); if (d) { changed++; return d.text; } return w; }).join("");
+    if (changed) {
+      const pos = t.selectionStart; t.value = fixed; t.setSelectionRange(fixed.length, fixed.length);
+      ts.textContent = "Виправлено → " + fixed.trim().split(/\s+/).pop(); ts.classList.add("ok");
+      t.classList.remove("flash"); void t.offsetWidth; t.classList.add("flash");
+    }
+  });
+  p.addEventListener("input", () => {
+    ps.textContent = p.value ? "Символів: " + p.value.length + " · без змін, без запису" : "Switchcraft сюди не дивиться";
+  });
 })();

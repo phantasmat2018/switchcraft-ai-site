@@ -31,7 +31,7 @@
     <a href="#privacy">Приватність</a>
     <a href="https://github.com/phantasmat2018/Switchcraft-AI" rel="noopener">GitHub</a>
   </nav>
-  <a class="btn btn-sm" href="https://github.com/phantasmat2018/Switchcraft-AI/releases/download/v1.6.0/SwitchcraftSetup.exe">Завантажити</a>
+  <a class="btn btn-sm" data-dl="setup" href="https://github.com/phantasmat2018/Switchcraft-AI/releases/download/v1.6.0/SwitchcraftSetup.exe">Завантажити для Windows</a>
 </header>
 
 <main id="main">
@@ -40,13 +40,14 @@
     <p class="lede">Набрали <span class="mono wrong">ghbdsn</span> замість <span class="mono right">привіт</span>? Switchcraft AI помічає слово, набране не в тій розкладці, виправляє його після пробілу й сам перемикає мову. Англійська, українська, російська — без телеметрії й без запису тексту.</p>
 
     <div class="cta">
-      <a class="btn btn-primary" href="https://github.com/phantasmat2018/Switchcraft-AI/releases/download/v1.6.0/SwitchcraftSetup.exe">
-        <svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20"><path d="M12 3v12m0 0-5-5m5 5 5-5M4 20h16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        Завантажити для Windows
-      </a>
-      <a class="btn btn-ghost" href="https://github.com/phantasmat2018/Switchcraft-AI/releases/download/v1.6.0/Switchcraft-AI-1.6.0-portable.zip">Портативна версія (.zip)</a>
+      <a class="btn btn-primary" data-dl="setup" href="https://github.com/phantasmat2018/Switchcraft-AI/releases/download/v1.6.0/SwitchcraftSetup.exe"><svg class="ic" aria-hidden="true" viewBox="0 0 256 256" fill="currentColor"><path d="M224,144v64a8,8,0,0,1-8,8H40a8,8,0,0,1-8-8V144a8,8,0,0,1,16,0v56H208V144a8,8,0,0,1,16,0Zm-101.66,5.66a8,8,0,0,0,11.32,0l40-40a8,8,0,0,0-11.32-11.32L136,124.69V32a8,8,0,0,0-16,0v92.69L93.66,98.34a8,8,0,0,0-11.32,11.32Z"/></svg>Завантажити для Windows</a>
+      <a class="btn btn-ghost" data-dl="portable" href="https://github.com/phantasmat2018/Switchcraft-AI/releases/download/v1.6.0/Switchcraft-AI-1.6.0-portable.zip">Портативна версія (.zip)</a>
     </div>
-    <p class="meta">Версія 1.6.0 · Windows 10/11 x64 · 16,2 МБ · без прав адміністратора</p>
+    <p class="meta"><span data-rel="version">Версія 1.6.0</span> · Windows 10/11 x64 · <span data-rel="size">16,2 МБ</span> · без прав адміністратора<span data-rel="date"></span></p>
+    <div class="notwin" id="notwin" hidden>
+      <p>Switchcraft працює на Windows. Надішліть собі посилання й завантажте на комп’ютері.</p>
+      <button class="btn btn-ghost btn-sm2" type="button" data-copy="https://switchcraft-ai.buytur.workers.dev"><svg class="ic" aria-hidden="true" viewBox="0 0 256 256" fill="currentColor"><path d="M216,32H88a8,8,0,0,0-8,8V80H40a8,8,0,0,0-8,8V216a8,8,0,0,0,8,8H168a8,8,0,0,0,8-8V176h40a8,8,0,0,0,8-8V40A8,8,0,0,0,216,32ZM160,208H48V96H160Zm48-48H176V88a8,8,0,0,0-8-8H96V48H208Z"/></svg><span>Скопіювати посилання</span></button>
+    </div>
 
     <figure class="demo" aria-labelledby="demo-cap">
       <div class="demo-bar">
@@ -57,6 +58,12 @@
         <div class="demo-out" id="demo-out" aria-live="polite"></div>
         <label class="visually-hidden" for="demo-in">Наберіть текст в англійській розкладці</label>
         <input id="demo-in" class="demo-in" type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Наберіть ghbdsn cdsn і натисніть пробіл">
+      </div>
+      <div class="kb" id="kb" data-layout="en" aria-hidden="true">
+        <div class="kb-row r0"><span class="k" data-k="q"><b>Q</b><i>Й</i></span><span class="k" data-k="w"><b>W</b><i>Ц</i></span><span class="k" data-k="e"><b>E</b><i>У</i></span><span class="k" data-k="r"><b>R</b><i>К</i></span><span class="k" data-k="t"><b>T</b><i>Е</i></span><span class="k" data-k="y"><b>Y</b><i>Н</i></span><span class="k" data-k="u"><b>U</b><i>Г</i></span><span class="k" data-k="i"><b>I</b><i>Ш</i></span><span class="k" data-k="o"><b>O</b><i>Щ</i></span><span class="k" data-k="p"><b>P</b><i>З</i></span><span class="k" data-k="["><b>[</b><i>Х</i></span><span class="k" data-k="]"><b>]</b><i>Ї</i></span></div>
+        <div class="kb-row r1"><span class="k" data-k="a"><b>A</b><i>Ф</i></span><span class="k" data-k="s"><b>S</b><i>І</i></span><span class="k" data-k="d"><b>D</b><i>В</i></span><span class="k" data-k="f"><b>F</b><i>А</i></span><span class="k" data-k="g"><b>G</b><i>П</i></span><span class="k" data-k="h"><b>H</b><i>Р</i></span><span class="k" data-k="j"><b>J</b><i>О</i></span><span class="k" data-k="k"><b>K</b><i>Л</i></span><span class="k" data-k="l"><b>L</b><i>Д</i></span><span class="k" data-k=";"><b>;</b><i>Ж</i></span><span class="k" data-k="'"><b>'</b><i>Є</i></span></div>
+        <div class="kb-row r2"><span class="k" data-k="z"><b>Z</b><i>Я</i></span><span class="k" data-k="x"><b>X</b><i>Ч</i></span><span class="k" data-k="c"><b>C</b><i>С</i></span><span class="k" data-k="v"><b>V</b><i>М</i></span><span class="k" data-k="b"><b>B</b><i>И</i></span><span class="k" data-k="n"><b>N</b><i>Т</i></span><span class="k" data-k="m"><b>M</b><i>Ь</i></span><span class="k" data-k=","><b>,</b><i>Б</i></span><span class="k" data-k="."><b>.</b><i>Ю</i></span></div>
+        <div class="kb-row r3"><span class="k space" data-k=" "><b>Space</b></span></div>
       </div>
       <figcaption id="demo-cap">Спрощена демонстрація в браузері для пари EN ↔ УК. У програмі мову визначає нейромережа Laya, TypeSafe AI або словники Hunspell.</figcaption>
     </figure>
@@ -111,15 +118,15 @@
   <section class="section" id="keys" aria-labelledby="keys-h">
     <div class="section-head">
       <h2 id="keys-h">Шість комбінацій, які варто запам’ятати</h2>
-      <p>Усі змінюються в «Налаштування → Гарячі клавіші».</p>
+      <p>Усі змінюються в «Налаштування → Гарячі клавіші». <span class="kb-hint">Спробуйте натиснути будь-яку з них просто зараз.</span></p>
     </div>
     <ul class="hotkeys">
-      <li><span class="combo"><kbd>Ctrl</kbd><kbd>Alt</kbd><kbd class="wide">Space</kbd></span><span>Перетворити виділений текст</span></li>
-      <li><span class="combo"><kbd>Ctrl</kbd><kbd>Alt</kbd><kbd class="wide">Backspace</kbd></span><span>Скасувати останнє автовиправлення</span></li>
-      <li><span class="combo"><kbd>Ctrl</kbd><kbd>Alt</kbd><kbd>P</kbd></span><span>Пауза / відновити роботу</span></li>
-      <li><span class="combo"><kbd>Ctrl</kbd><kbd>Alt</kbd><kbd>1</kbd></span><span>Виділення → українська</span></li>
-      <li><span class="combo"><kbd>Ctrl</kbd><kbd>Alt</kbd><kbd>2</kbd></span><span>Виділення → англійська</span></li>
-      <li><span class="combo"><kbd>Ctrl</kbd><kbd>Alt</kbd><kbd>3</kbd></span><span>Виділення → російська</span></li>
+      <li data-code="Space"><span class="combo"><kbd>Ctrl</kbd><kbd>Alt</kbd><kbd class="wide">Space</kbd></span><span>Перетворити виділений текст</span></li>
+      <li data-code="Backspace"><span class="combo"><kbd>Ctrl</kbd><kbd>Alt</kbd><kbd class="wide">Backspace</kbd></span><span>Скасувати останнє автовиправлення</span></li>
+      <li data-code="KeyP"><span class="combo"><kbd>Ctrl</kbd><kbd>Alt</kbd><kbd>P</kbd></span><span>Пауза / відновити роботу</span></li>
+      <li data-code="Digit1"><span class="combo"><kbd>Ctrl</kbd><kbd>Alt</kbd><kbd>1</kbd></span><span>Виділення → українська</span></li>
+      <li data-code="Digit2"><span class="combo"><kbd>Ctrl</kbd><kbd>Alt</kbd><kbd>2</kbd></span><span>Виділення → англійська</span></li>
+      <li data-code="Digit3"><span class="combo"><kbd>Ctrl</kbd><kbd>Alt</kbd><kbd>3</kbd></span><span>Виділення → російська</span></li>
     </ul>
   </section>
 
@@ -133,6 +140,16 @@
       <div><dt>Ключ API</dt><dd>Ключ TypeSafe шифрується Windows DPAPI для поточного користувача.</dd></div>
       <div><dt>Налаштування</dt><dd>Лежать у <code>%LOCALAPPDATA%\Switchcraft</code>, імпорт та експорт у JSON.</dd></div>
     </dl>
+    <div class="proof">
+      <div class="proof-head">
+        <h3>Перевірте самі</h3>
+        <p>Наберіть <span class="mono">ghbdsn</span> в обох полях і натисніть пробіл. Так само поводиться програма: у звичайному полі вона виправить слово, у полі пароля нічого не чіпатиме.</p>
+      </div>
+      <div class="proof-grid">
+        <label class="pf"><span class="pf-l">Звичайне поле</span><input id="pf-text" type="text" autocomplete="off" spellcheck="false" placeholder="ghbdsn"><span class="pf-s" id="pf-text-s" aria-live="polite">Чекає на пробіл</span></label>
+        <label class="pf"><span class="pf-l">Поле пароля</span><input id="pf-pass" type="password" autocomplete="new-password" placeholder="ghbdsn"><span class="pf-s" id="pf-pass-s" aria-live="polite">Switchcraft сюди не дивиться</span></label>
+      </div>
+    </div>
   </section>
 
   <section class="section more" aria-labelledby="more-h">
@@ -150,20 +167,20 @@
   <section class="final" aria-labelledby="final-h">
     <h2 id="final-h">Останній раз пишете <span class="mono wrong">ghbdsn</span>.</h2>
     <div class="cta">
-      <a class="btn btn-primary" href="https://github.com/phantasmat2018/Switchcraft-AI/releases/download/v1.6.0/SwitchcraftSetup.exe">Завантажити SwitchcraftSetup.exe</a>
+      <a class="btn btn-primary" data-dl="setup" href="https://github.com/phantasmat2018/Switchcraft-AI/releases/download/v1.6.0/SwitchcraftSetup.exe"><svg class="ic" aria-hidden="true" viewBox="0 0 256 256" fill="currentColor"><path d="M224,144v64a8,8,0,0,1-8,8H40a8,8,0,0,1-8-8V144a8,8,0,0,1,16,0v56H208V144a8,8,0,0,1,16,0Zm-101.66,5.66a8,8,0,0,0,11.32,0l40-40a8,8,0,0,0-11.32-11.32L136,124.69V32a8,8,0,0,0-16,0v92.69L93.66,98.34a8,8,0,0,0-11.32,11.32Z"/></svg>Завантажити для Windows</a>
       <a class="btn btn-ghost" href="https://github.com/phantasmat2018/Switchcraft-AI/releases/latest">Усі релізи</a>
     </div>
     <details class="build">
       <summary>Зібрати з вихідного коду</summary>
       <p>Потрібні Windows 10/11 x64, .NET SDK 8.0+ і NSIS 3.10 для інсталятора.</p>
-<pre><code>dotnet build src/Switchcraft.csproj -c Release
-.\tools\build-ai-installer.ps1</code></pre>
+<div class="codebox"><button class="copy" type="button" data-copy-target="build-code" aria-label="Скопіювати команди"><svg class="ic" aria-hidden="true" viewBox="0 0 256 256" fill="currentColor"><path d="M216,32H88a8,8,0,0,0-8,8V80H40a8,8,0,0,0-8,8V216a8,8,0,0,0,8,8H168a8,8,0,0,0,8-8V176h40a8,8,0,0,0,8-8V40A8,8,0,0,0,216,32ZM160,208H48V96H160Zm48-48H176V88a8,8,0,0,0-8-8H96V48H208Z"/></svg><span>Копіювати</span></button><pre><code id="build-code">dotnet build src/Switchcraft.csproj -c Release
+.\tools\build-ai-installer.ps1</code></pre></div>
     </details>
   </section>
 </main>
 
 <footer class="foot">
-  <span>Switchcraft AI 1.6.0</span>
+  <span>Switchcraft AI <span data-rel="vnum">1.6.0</span></span>
   <a href="https://github.com/phantasmat2018/Switchcraft-AI">Вихідний код</a>
   <a href="https://github.com/phantasmat2018/Switchcraft-AI/blob/main/THIRD-PARTY.md">Сторонні компоненти</a>
 </footer>
