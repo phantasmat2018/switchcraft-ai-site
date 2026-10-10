@@ -197,3 +197,35 @@
     ps.textContent = p.value ? "Символів: " + p.value.length + " · без змін, без запису" : "Switchcraft сюди не дивиться";
   });
 })();
+
+/* ---------- Scroll motion (numbers & keys) ---------- */
+(() => {
+  if (!("IntersectionObserver" in window)) return;
+  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  document.documentElement.classList.add("motion");
+  const once = (els, fn, opts) => {
+    const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { io.unobserve(e.target); fn(e.target); } }), opts);
+    els.forEach(el => io.observe(el));
+  };
+  const steps = document.querySelector(".steps");
+  if (steps) {
+    steps.querySelectorAll("li").forEach((li, i) => li.style.setProperty("--i", i));
+    once([steps], el => el.classList.add("in"), { threshold: 0.35 });
+  }
+  document.querySelectorAll(".hotkeys li").forEach(li => {
+    li.querySelectorAll("kbd").forEach((k, i) => k.style.setProperty("--k", i));
+  });
+  once([...document.querySelectorAll(".hotkeys li")], li => {
+    li.classList.add("chord");
+    setTimeout(() => li.classList.remove("chord"), 1100);
+  }, { threshold: 1, rootMargin: "0px 0px -12% 0px" });
+  const count = el => {
+    const to = parseFloat(el.dataset.count); if (reduce || !to) return;
+    const t0 = performance.now(), d = 1100;
+    const tick = t => { const p = Math.min(1, (t - t0) / d), e = 1 - Math.pow(1 - p, 3);
+      el.textContent = Math.round(to * e); if (p < 1) requestAnimationFrame(tick); };
+    el.textContent = "0"; requestAnimationFrame(tick);
+  };
+  once([...document.querySelectorAll("[data-count]")], count, { threshold: 1 });
+  once([...document.querySelectorAll(".final .btn-primary")], b => b.classList.add("shine"), { threshold: 1 });
+})();

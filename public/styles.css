@@ -203,3 +203,23 @@ kbd.wide{min-width:5.2rem}
 
 @media (max-width:900px){.proof-grid{grid-template-columns:1fr}}
 @media (max-width:560px){.kb{padding-left:.8rem;padding-right:.8rem}.k b,.k i{font-size:.5rem}}
+
+/* ---------- v3 scroll motion ---------- */
+.motion .steps li::before{transform:scale(.7);opacity:0;transition:transform 520ms var(--ease-out),opacity 320ms var(--ease-out),background-color 600ms var(--ease-out),color 600ms var(--ease-out),border-color 600ms var(--ease-out);transition-delay:calc(var(--i,0)*160ms)}
+.motion .steps li:not(:last-child)::after{transform:scaleY(0);transform-origin:top;transition:transform 600ms var(--ease-out);transition-delay:calc(var(--i,0)*160ms + 220ms)}
+.motion .steps li{opacity:.35;transition:opacity 500ms var(--ease-out);transition-delay:calc(var(--i,0)*160ms + 80ms)}
+.motion .steps.in li{opacity:1}
+.motion .steps.in li::before{transform:none;opacity:1;animation:stepglow 900ms var(--ease-out) both;animation-delay:calc(var(--i,0)*160ms + 120ms)}
+.motion .steps.in li:not(:last-child)::after{transform:none}
+@keyframes stepglow{0%{background:var(--sage-deep);color:#0f1916;border-color:var(--sage);box-shadow:0 0 0 0 rgba(131,189,170,.5)}60%{box-shadow:0 0 0 8px rgba(131,189,170,0)}100%{background:var(--surface);color:var(--sage);border-color:var(--line-2);box-shadow:0 0 0 0 rgba(131,189,170,0)}}
+.num{font-variant-numeric:tabular-nums}
+.motion .hotkeys li.chord kbd{animation:keypress 620ms var(--ease-out) both;animation-delay:calc(var(--k,0)*110ms)}
+@keyframes keypress{0%{transform:none}25%{transform:translateY(2px);border-bottom-width:1px;border-color:var(--sage-deep);color:var(--sage);box-shadow:0 0 0 3px rgba(131,189,170,.18)}70%{transform:translateY(2px);border-bottom-width:1px;border-color:var(--sage-deep);color:var(--sage)}100%{transform:none}}
+.motion .btn.shine{position:relative;overflow:hidden}
+.motion .btn.shine::after{content:"";position:absolute;inset:0;background:linear-gradient(100deg,transparent 30%,rgba(255,255,255,.35) 50%,transparent 70%);transform:translateX(-110%);animation:sheen 1100ms var(--ease-out) 200ms both;pointer-events:none}
+@keyframes sheen{to{transform:translateX(110%)}}
+@media (prefers-reduced-motion:reduce){
+  .motion .steps li,.motion .steps li::before{opacity:1;transform:none}
+  .motion .steps li:not(:last-child)::after{transform:none}
+  .motion .steps.in li::before,.motion .hotkeys li.chord kbd,.motion .btn.shine::after{animation:none}
+}
