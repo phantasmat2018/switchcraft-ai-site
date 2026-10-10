@@ -19,6 +19,10 @@ npx wrangler dev
 
 ## Деплой
 
+Автоматичний: кожен push у гілку `main` запускає Cloudflare Workers Builds (`npx wrangler deploy`), і сайт оновлюється за ~30 секунд. Статус збірок — у панелі Cloudflare: Workers → switchcraft-ai → Deployments.
+
+Вручну (за потреби):
+
 ```bash
 npx wrangler deploy
 ```
