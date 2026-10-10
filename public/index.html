@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Switchcraft AI — розумний перемикач розкладки для Windows</title>
+<meta name="description" content="Switchcraft AI виправляє текст, набраний не в тій розкладці: EN / УК / RU. Локальна нейромережа Laya, TypeSafe AI або словники. Без телеметрії. Безкоштовно для Windows x64.">
+<meta name="theme-color" content="#0f1916">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta property="og:title" content="Switchcraft AI — ghbdsn → привіт">
+<meta property="og:description" content="Розумний перемикач розкладки для Windows з українським інтерфейсом і локальним ШІ.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource-variable/unbounded@5/index.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource-variable/onest@5/index.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource-variable/jetbrains-mono@5/index.css">
+<link rel="stylesheet" href="/styles.css">
+<script defer src="/app.js"></script>
+</head>
+<body>
+<a class="skip" href="#main">Перейти до змісту</a>
+
+<header class="nav">
+  <a class="brand" href="/" aria-label="Switchcraft AI — на головну">
+    <img src="/favicon.svg" width="32" height="32" alt="">
+    <span>Switchcraft <b>AI</b></span>
+  </a>
+  <nav aria-label="Розділи">
+    <a href="#engines">Як визначає мову</a>
+    <a href="#keys">Гарячі клавіші</a>
+    <a href="#privacy">Приватність</a>
+    <a href="https://github.com/phantasmat2018/Switchcraft-AI" rel="noopener">GitHub</a>
+  </nav>
+  <a class="btn btn-sm" href="https://github.com/phantasmat2018/Switchcraft-AI/releases/download/v1.6.0/SwitchcraftSetup.exe">Завантажити</a>
+</header>
+
+<main id="main">
+  <section class="hero">
+    <h1>Друкуйте. Розкладку <span class="nowrap">виправить</span> Switchcraft.</h1>
+    <p class="lede">Набрали <span class="mono wrong">ghbdsn</span> замість <span class="mono right">привіт</span>? Switchcraft AI помічає слово, набране не в тій розкладці, виправляє його після пробілу й сам перемикає мову. Англійська, українська, російська — без телеметрії й без запису тексту.</p>
+
+    <div class="cta">
+      <a class="btn btn-primary" href="https://github.com/phantasmat2018/Switchcraft-AI/releases/download/v1.6.0/SwitchcraftSetup.exe">
+        <svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20"><path d="M12 3v12m0 0-5-5m5 5 5-5M4 20h16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Завантажити для Windows
+      </a>
+      <a class="btn btn-ghost" href="https://github.com/phantasmat2018/Switchcraft-AI/releases/download/v1.6.0/Switchcraft-AI-1.6.0-portable.zip">Портативна версія (.zip)</a>
+    </div>
+    <p class="meta">Версія 1.6.0 · Windows 10/11 x64 · 16,2 МБ · без прав адміністратора</p>
+
+    <figure class="demo" aria-labelledby="demo-cap">
+      <div class="demo-bar">
+        <span class="demo-title">Спробуйте прямо тут</span>
+        <span class="layout-pill" id="layout" aria-live="polite">EN</span>
+      </div>
+      <div class="demo-field">
+        <div class="demo-out" id="demo-out" aria-live="polite"></div>
+        <label class="visually-hidden" for="demo-in">Наберіть текст в англійській розкладці</label>
+        <input id="demo-in" class="demo-in" type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Наберіть ghbdsn cdsn і натисніть пробіл">
+      </div>
+      <figcaption id="demo-cap">Спрощена демонстрація в браузері для пари EN ↔ УК. У програмі мову визначає нейромережа Laya, TypeSafe AI або словники Hunspell.</figcaption>
+    </figure>
+  </section>
+
+  <section class="section" id="engines" aria-labelledby="engines-h">
+    <div class="section-head">
+      <h2 id="engines-h">Три способи зрозуміти, якою мовою ви пишете</h2>
+      <p>Оберіть у налаштуваннях: «Налаштування → Як визначати мову». Перемкнутися можна будь-коли.</p>
+    </div>
+    <div class="engines" role="table" aria-label="Порівняння режимів">
+      <div class="erow ehead" role="row">
+        <span role="columnheader">Режим</span>
+        <span role="columnheader">Де працює</span>
+        <span role="columnheader">Інтернет</span>
+        <span role="columnheader">Коли обрати</span>
+      </div>
+      <div class="erow" role="row">
+        <span role="cell" class="ename"><b>Laya</b><small>локальна модель r3</small></span>
+        <span role="cell">На вашому ПК: CPU або NVIDIA CUDA. Нейромережа mmBERT, ~572 МБ</span>
+        <span role="cell"><i class="tag ok">Не потрібен</i></span>
+        <span role="cell">Хочете повну автономність і найкращу точність офлайн</span>
+      </div>
+      <div class="erow" role="row">
+        <span role="cell" class="ename"><b>TypeSafe AI</b><small>хмарний</small></span>
+        <span role="cell">Захищений API. Ключ зашифрований Windows DPAPI</span>
+        <span role="cell"><i class="tag">Потрібен</i></span>
+        <span role="cell">Слабкий ПК і бажання швидкого розпізнавання без завантаження моделі</span>
+      </div>
+      <div class="erow" role="row">
+        <span role="cell" class="ename"><b>Словники</b><small>класичний режим</small></span>
+        <span role="cell">Локально: словники Hunspell і консервативні правила</span>
+        <span role="cell"><i class="tag ok">Не потрібен</i></span>
+        <span role="cell">Мінімум ресурсів і передбачувана поведінка</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section split" aria-labelledby="laya-h">
+    <div>
+      <h2 id="laya-h">Laya за чотири кроки</h2>
+      <p>Інсталятор може підготувати модель одразу під час першого встановлення. Або зробіть це пізніше з налаштувань.</p>
+    </div>
+    <ol class="steps">
+      <li>Відкрийте <b>Налаштування → Як визначати мову → Laya · локально</b>.</li>
+      <li>Натисніть <b>Завантажити й підготувати</b>.</li>
+      <li>Програма завантажить модель r3 (~572 МБ) з <a href="https://github.com/phantasmat2018/Switchcraft-AI/releases/tag/laya-r3">офіційного релізу</a> і перевірить контрольну суму SHA-256.</li>
+      <li>Оберіть прискорення: <b>Автоматично</b>, <b>CPU</b> або <b>NVIDIA CUDA</b>.</li>
+    </ol>
+  </section>
+
+  <section class="section" id="keys" aria-labelledby="keys-h">
+    <div class="section-head">
+      <h2 id="keys-h">Шість комбінацій, які варто запам’ятати</h2>
+      <p>Усі змінюються в «Налаштування → Гарячі клавіші».</p>
+    </div>
+    <ul class="hotkeys">
+      <li><span class="combo"><kbd>Ctrl</kbd><kbd>Alt</kbd><kbd class="wide">Space</kbd></span><span>Перетворити виділений текст</span></li>
+      <li><span class="combo"><kbd>Ctrl</kbd><kbd>Alt</kbd><kbd class="wide">Backspace</kbd></span><span>Скасувати останнє автовиправлення</span></li>
+      <li><span class="combo"><kbd>Ctrl</kbd><kbd>Alt</kbd><kbd>P</kbd></span><span>Пауза / відновити роботу</span></li>
+      <li><span class="combo"><kbd>Ctrl</kbd><kbd>Alt</kbd><kbd>1</kbd></span><span>Виділення → українська</span></li>
+      <li><span class="combo"><kbd>Ctrl</kbd><kbd>Alt</kbd><kbd>2</kbd></span><span>Виділення → англійська</span></li>
+      <li><span class="combo"><kbd>Ctrl</kbd><kbd>Alt</kbd><kbd>3</kbd></span><span>Виділення → російська</span></li>
+    </ul>
+  </section>
+
+  <section class="section privacy" id="privacy" aria-labelledby="privacy-h">
+    <h2 id="privacy-h">Він бачить, що ви друкуєте. Тому він нічого не запам’ятовує.</h2>
+    <dl class="facts">
+      <div><dt>Паролі</dt><dd>Поля паролів, менеджери паролів і захищені форми ігноруються автоматично.</dd></div>
+      <div><dt>Текст</dt><dd>Жодного журналювання й жодних набраних паролів на диску.</dd></div>
+      <div><dt>Історія</dt><dd>До 50 останніх виправлень, лише в оперативній пам’яті поточної сесії.</dd></div>
+      <div><dt>Телеметрія</dt><dd>Немає. Ні сторонньої аналітики, ні «анонімної статистики».</dd></div>
+      <div><dt>Ключ API</dt><dd>Ключ TypeSafe шифрується Windows DPAPI для поточного користувача.</dd></div>
+      <div><dt>Налаштування</dt><dd>Лежать у <code>%LOCALAPPDATA%\Switchcraft</code>, імпорт та експорт у JSON.</dd></div>
+    </dl>
+  </section>
+
+  <section class="section more" aria-labelledby="more-h">
+    <h2 id="more-h">І ще дрібниці, які роблять його своїм</h2>
+    <ul class="ticks">
+      <li>Зберігає регістр: <span class="mono">Ghbdsn</span> стає <span class="mono">Привіт</span>, а <span class="mono">GHBDSN</span> — <span class="mono">ПРИВІТ</span>.</li>
+      <li>Працює в редакторах коду на Scintilla: виправлення спрацьовує і на Enter.</li>
+      <li>Навчається: скасоване виправлення можна одразу додати до винятків.</li>
+      <li>Списки програм-винятків, власні правила й заміни з пошуком.</li>
+      <li>Кнопка «Перевірити оновлення» звіряється з релізами на GitHub.</li>
+      <li>Чисте видалення через «Програми та компоненти».</li>
+    </ul>
+  </section>
+
+  <section class="final" aria-labelledby="final-h">
+    <h2 id="final-h">Останній раз пишете <span class="mono wrong">ghbdsn</span>.</h2>
+    <div class="cta">
+      <a class="btn btn-primary" href="https://github.com/phantasmat2018/Switchcraft-AI/releases/download/v1.6.0/SwitchcraftSetup.exe">Завантажити SwitchcraftSetup.exe</a>
+      <a class="btn btn-ghost" href="https://github.com/phantasmat2018/Switchcraft-AI/releases/latest">Усі релізи</a>
+    </div>
+    <details class="build">
+      <summary>Зібрати з вихідного коду</summary>
+      <p>Потрібні Windows 10/11 x64, .NET SDK 8.0+ і NSIS 3.10 для інсталятора.</p>
+<pre><code>dotnet build src/Switchcraft.csproj -c Release
+.\tools\build-ai-installer.ps1</code></pre>
+    </details>
+  </section>
+</main>
+
+<footer class="foot">
+  <span>Switchcraft AI 1.6.0</span>
+  <a href="https://github.com/phantasmat2018/Switchcraft-AI">Вихідний код</a>
+  <a href="https://github.com/phantasmat2018/Switchcraft-AI/blob/main/THIRD-PARTY.md">Сторонні компоненти</a>
+</footer>
+</body>
+</html>
