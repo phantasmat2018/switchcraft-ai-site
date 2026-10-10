@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Switchcraft AI — розумний перемикач розкладки для Windows</title>
-<meta name="description" content="Switchcraft AI виправляє текст, набраний не в тій розкладці: EN / УК / RU. Локальна нейромережа Laya, TypeSafe AI або словники. Без телеметрії. Безкоштовно для Windows x64.">
+<meta name="description" content="Switchcraft AI виправляє текст, набраний не в тій розкладці: EN / УК / RU. Локальна нейромережа Laya або хмарний TypeSafe AI. Без телеметрії. Для Windows x64.">
 <meta name="theme-color" content="#0f1916">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <meta property="og:title" content="Switchcraft AI — ghbdsn → привіт">
@@ -65,13 +65,13 @@
         <div class="kb-row r2"><span class="k" data-k="z"><b>Z</b><i>Я</i></span><span class="k" data-k="x"><b>X</b><i>Ч</i></span><span class="k" data-k="c"><b>C</b><i>С</i></span><span class="k" data-k="v"><b>V</b><i>М</i></span><span class="k" data-k="b"><b>B</b><i>И</i></span><span class="k" data-k="n"><b>N</b><i>Т</i></span><span class="k" data-k="m"><b>M</b><i>Ь</i></span><span class="k" data-k=","><b>,</b><i>Б</i></span><span class="k" data-k="."><b>.</b><i>Ю</i></span></div>
         <div class="kb-row r3"><span class="k space" data-k=" "><b>Space</b></span></div>
       </div>
-      <figcaption id="demo-cap">Спрощена демонстрація в браузері для пари EN ↔ УК. У програмі мову визначає нейромережа Laya, TypeSafe AI або словники Hunspell.</figcaption>
+      <figcaption id="demo-cap">Спрощена демонстрація в браузері для пари EN ↔ УК. У програмі мову визначає локальна нейромережа Laya або хмарний TypeSafe AI.</figcaption>
     </figure>
   </section>
 
   <section class="section" id="engines" aria-labelledby="engines-h">
     <div class="section-head">
-      <h2 id="engines-h">Три способи зрозуміти, якою мовою ви пишете</h2>
+      <h2 id="engines-h">Два способи зрозуміти, якою мовою ви пишете</h2>
       <p>Оберіть у налаштуваннях: «Налаштування → Як визначати мову». Перемкнутися можна будь-коли.</p>
     </div>
     <div class="engines" role="table" aria-label="Порівняння режимів">
@@ -85,19 +85,13 @@
         <span role="cell" class="ename"><b>Laya</b><small>локальна модель r3</small></span>
         <span role="cell">На вашому ПК: CPU або NVIDIA CUDA. Нейромережа mmBERT, ~572 МБ</span>
         <span role="cell"><i class="tag ok">Не потрібен</i></span>
-        <span role="cell">Хочете повну автономність і найкращу точність офлайн</span>
+        <span role="cell">Хочете повну автономність і роботу без інтернету</span>
       </div>
       <div class="erow" role="row">
         <span role="cell" class="ename"><b>TypeSafe AI</b><small>хмарний</small></span>
         <span role="cell">Захищений API. Ключ зашифрований Windows DPAPI</span>
         <span role="cell"><i class="tag">Потрібен</i></span>
         <span role="cell">Слабкий ПК і бажання швидкого розпізнавання без завантаження моделі</span>
-      </div>
-      <div class="erow" role="row">
-        <span role="cell" class="ename"><b>Словники</b><small>класичний режим</small></span>
-        <span role="cell">Локально: словники Hunspell і консервативні правила</span>
-        <span role="cell"><i class="tag ok">Не потрібен</i></span>
-        <span role="cell">Мінімум ресурсів і передбачувана поведінка</span>
       </div>
     </div>
   </section>
