@@ -230,17 +230,18 @@
   once([...document.querySelectorAll(".final .btn-primary")], b => b.classList.add("shine"), { threshold: 1 });
 })();
 
-/* ---------- Analytics events ---------- */
+/* ---------- Footer wordmark: wrong layout gets fixed on view ---------- */
 (() => {
-  const send = (name, params) => { try { window.gtag && gtag("event", name, params); } catch {} };
-  document.addEventListener("click", e => {
-    const dl = e.target.closest("[data-dl]");
-    if (dl) {
-      const where = dl.closest(".nav") ? "header" : dl.closest(".final") ? "footer_cta" : "hero";
-      send("download_click", { package: dl.dataset.dl, placement: where, link_url: dl.href });
-      return;
-    }
-    const cp = e.target.closest("[data-copy],[data-copy-target]");
-    if (cp) send(cp.dataset.copyTarget ? "copy_build_commands" : "copy_site_link", {});
-  });
+  const el = document.querySelector(".foot-word");
+  if (!el) return;
+  const right = el.dataset.word, wrong = el.dataset.wrong;
+  if (matchMedia("(prefers-reduced-motion: reduce)").matches || !("IntersectionObserver" in window) || wrong.length !== right.length) return;
+  el.innerHTML = [...wrong].map(c => `<span class="ch wrong">${c}</span>`).join("");
+  const chars = el.querySelectorAll(".ch");
+  const io = new IntersectionObserver(es => {
+    if (!es[0].isIntersecting) return;
+    io.disconnect();
+    chars.forEach((ch, i) => setTimeout(() => { ch.textContent = right[i]; ch.classList.remove("wrong"); ch.classList.add("fix"); }, 350 + i * 70));
+  }, { threshold: 0.6 });
+  io.observe(el);
 })();
