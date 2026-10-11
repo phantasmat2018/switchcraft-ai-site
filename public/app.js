@@ -291,3 +291,18 @@
   }, { threshold: 0.4 }) : null;
   if (io) io.observe(document.querySelector(".calc-box")); else { shown = true; update(); }
 })();
+
+/* ---------- Analytics events ---------- */
+(() => {
+  const send = (name, params) => { try { window.gtag && gtag("event", name, params); } catch {} };
+  document.addEventListener("click", e => {
+    const dl = e.target.closest("[data-dl]");
+    if (dl) {
+      const where = dl.closest(".nav") ? "header" : dl.closest(".final") ? "footer_cta" : "hero";
+      send("download_click", { package: dl.dataset.dl, placement: where, link_url: dl.href });
+      return;
+    }
+    const cp = e.target.closest("[data-copy],[data-copy-target]");
+    if (cp) send(cp.dataset.copyTarget ? "copy_build_commands" : "copy_site_link", {});
+  });
+})();
