@@ -116,7 +116,7 @@
 
 /* ---------- Live release info from GitHub ---------- */
 (() => {
-  const KEY = "sc-release-v1";
+  const KEY = "sc-release-v2"; try { sessionStorage.removeItem("sc-release-v1"); } catch {}
   const fmtSize = b => (b / 1048576).toLocaleString("uk-UA", { maximumFractionDigits: 1 }) + " МБ";
   const fmtDate = d => new Date(d).toLocaleDateString("uk-UA", { day: "numeric", month: "long", year: "numeric" });
   function apply(r) {
@@ -132,7 +132,7 @@
     if (setup) document.querySelectorAll('[data-rel="size"]').forEach(e => e.textContent = fmtSize(setup.size));
     if (r.published_at) document.querySelectorAll('[data-rel="date"]').forEach(e => e.textContent = " · вийшла " + fmtDate(r.published_at));
   }
-  try { const c = JSON.parse(sessionStorage.getItem(KEY) || "null"); if (c && Date.now() - c.t < 36e5) return apply(c.r); } catch {}
+  try { const c = JSON.parse(sessionStorage.getItem(KEY) || "null"); if (c && Date.now() - c.t < 6e5) return apply(c.r); } catch {}
   fetch("https://api.github.com/repos/phantasmat2018/Switchcraft-AI/releases/latest", { headers: { Accept: "application/vnd.github+json" } })
     .then(r => r.ok ? r.json() : null)
     .then(r => { if (!r) return; const slim = { tag_name: r.tag_name, published_at: r.published_at, assets: (r.assets || []).map(a => ({ name: a.name, size: a.size, browser_download_url: a.browser_download_url })) }; apply(slim); try { sessionStorage.setItem(KEY, JSON.stringify({ t: Date.now(), r: slim })); } catch {} })
