@@ -262,7 +262,7 @@
     const str = String(value).padStart(pad || 1, "0");
     build(el, str);
     el.setAttribute("aria-label", str);
-    [...el.querySelectorAll(".r")].forEach((r, i) => { r.style.transform = `translateY(-${+str[i]}em)`; });
+    [...el.querySelectorAll(".r")].forEach((r, i) => { r.style.transform = `translateY(calc(var(--rh) * -${+str[i]}))`; });
   };
   const fmt = n => n.toLocaleString("uk-UA", { maximumFractionDigits: 1 });
   const box = document.querySelector(".calc-box");
