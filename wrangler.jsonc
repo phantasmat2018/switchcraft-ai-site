@@ -10,5 +10,5 @@
     { "pattern": "switchcraft.com.ua", "custom_domain": true },
     { "pattern": "www.switchcraft.com.ua", "custom_domain": true }
   ],
-  "assets": { "directory": "./public", "binding": "ASSETS", "run_worker_first": ["/og.jpg", "/apple-touch-icon.png"], "not_found_handling": "404-page" }
+  "assets": { "directory": "./public", "binding": "ASSETS", "run_worker_first": true, "not_found_handling": "404-page" }
 }

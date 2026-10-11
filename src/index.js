@@ -1,8 +1,8 @@
 import { OG_JPG, APPLE_ICON_PNG } from "./images.js";
 
-// Primary domain. Set REDIRECT = true once switchcraft.com.ua is active in Cloudflare.
+// Primary domain: every other hostname (www, pp.ua, workers.dev) 301-redirects here.
 const PRIMARY = "switchcraft.com.ua";
-const REDIRECT = false;
+const REDIRECT = true;
 
 const bin = b64 => Uint8Array.from(atob(b64), c => c.charCodeAt(0));
 const images = {
