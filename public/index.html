@@ -14,8 +14,8 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource-variable/unbounded@5/index.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource-variable/onest@5/index.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource-variable/jetbrains-mono@5/index.css">
-<link rel="stylesheet" href="/styles.css?v=3">
-<script defer src="/app.js?v=3"></script>
+<link rel="stylesheet" href="/styles.css?v=4">
+<script defer src="/app.js?v=4"></script>
 </head>
 <body>
 <a class="skip" href="#main">Перейти до змісту</a>
@@ -31,7 +31,7 @@
     <a href="#privacy">Приватність</a>
     <a href="https://github.com/phantasmat2018/Switchcraft-AI" rel="noopener">GitHub</a>
   </nav>
-  <a class="btn btn-sm" data-dl="setup" href="https://github.com/phantasmat2018/Switchcraft-AI/releases/download/v1.6.0/SwitchcraftSetup.exe">Завантажити для Windows</a>
+  <a class="btn btn-sm" data-dl="setup" href="https://github.com/phantasmat2018/Switchcraft-AI/releases/latest/download/SwitchcraftSetup.exe">Завантажити для Windows</a>
 </header>
 
 <main id="main">
@@ -40,10 +40,10 @@
     <p class="lede">Набрали <span class="mono wrong">ghbdsn</span> замість <span class="mono right">привіт</span>? Switchcraft AI помічає слово, набране не в тій розкладці, виправляє його після пробілу й сам перемикає мову. Англійська, українська, російська — без телеметрії й без запису тексту.</p>
 
     <div class="cta">
-      <a class="btn btn-primary" data-dl="setup" href="https://github.com/phantasmat2018/Switchcraft-AI/releases/download/v1.6.0/SwitchcraftSetup.exe"><svg class="ic" aria-hidden="true" viewBox="0 0 256 256" fill="currentColor"><path d="M224,144v64a8,8,0,0,1-8,8H40a8,8,0,0,1-8-8V144a8,8,0,0,1,16,0v56H208V144a8,8,0,0,1,16,0Zm-101.66,5.66a8,8,0,0,0,11.32,0l40-40a8,8,0,0,0-11.32-11.32L136,124.69V32a8,8,0,0,0-16,0v92.69L93.66,98.34a8,8,0,0,0-11.32,11.32Z"/></svg>Завантажити для Windows</a>
-      <a class="btn btn-ghost" data-dl="portable" href="https://github.com/phantasmat2018/Switchcraft-AI/releases/download/v1.6.0/Switchcraft-AI-1.6.0-portable.zip">Портативна версія (.zip)</a>
+      <a class="btn btn-primary" data-dl="setup" href="https://github.com/phantasmat2018/Switchcraft-AI/releases/latest/download/SwitchcraftSetup.exe"><svg class="ic" aria-hidden="true" viewBox="0 0 256 256" fill="currentColor"><path d="M224,144v64a8,8,0,0,1-8,8H40a8,8,0,0,1-8-8V144a8,8,0,0,1,16,0v56H208V144a8,8,0,0,1,16,0Zm-101.66,5.66a8,8,0,0,0,11.32,0l40-40a8,8,0,0,0-11.32-11.32L136,124.69V32a8,8,0,0,0-16,0v92.69L93.66,98.34a8,8,0,0,0-11.32,11.32Z"/></svg>Завантажити для Windows</a>
+      <a class="btn btn-ghost" data-dl="portable" href="https://github.com/phantasmat2018/Switchcraft-AI/releases/download/v1.6.1/Switchcraft-AI-1.6.1-portable.zip">Портативна версія (.zip)</a>
     </div>
-    <p class="meta"><span data-rel="version">Версія 1.6.0</span> · Windows 10/11 x64 · <span data-rel="size">16,2 МБ</span> · без прав адміністратора<span data-rel="date"></span></p>
+    <p class="meta"><span data-rel="version">Версія 1.6.1</span> · Windows 10/11 x64 · <span data-rel="size">62,4 МБ</span> · без прав адміністратора<span data-rel="date"></span></p>
     <div class="notwin" id="notwin" hidden>
       <p>Switchcraft працює на Windows. Надішліть собі посилання й завантажте на комп’ютері.</p>
       <button class="btn btn-ghost btn-sm2" type="button" data-copy="https://switchcraft-ai.buytur.workers.dev"><svg class="ic" aria-hidden="true" viewBox="0 0 256 256" fill="currentColor"><path d="M216,32H88a8,8,0,0,0-8,8V80H40a8,8,0,0,0-8,8V216a8,8,0,0,0,8,8H168a8,8,0,0,0,8-8V176h40a8,8,0,0,0,8-8V40A8,8,0,0,0,216,32ZM160,208H48V96H160Zm48-48H176V88a8,8,0,0,0-8-8H96V48H208Z"/></svg><span>Скопіювати посилання</span></button>
@@ -150,6 +150,8 @@
     <h2 id="more-h">І ще дрібниці, які роблять його своїм</h2>
     <ul class="ticks">
       <li>Зберігає регістр: <span class="mono">Ghbdsn</span> стає <span class="mono">Привіт</span>, а <span class="mono">GHBDSN</span> — <span class="mono">ПРИВІТ</span>.</li>
+      <li>Звіряє кожне виправлення з українським і російським словниками Hunspell, щоб не підставити неіснуюче слово.</li>
+      <li>Не губить натискання: якщо ви друкуєте далі під час заміни, літери з’являться в тому ж порядку.</li>
       <li>Працює в редакторах коду на Scintilla: виправлення спрацьовує і на Enter.</li>
       <li>Навчається: скасоване виправлення можна одразу додати до винятків.</li>
       <li>Списки програм-винятків, власні правила й заміни з пошуком.</li>
@@ -161,7 +163,7 @@
   <section class="final" aria-labelledby="final-h">
     <h2 id="final-h">Останній раз пишете <span class="mono wrong">ghbdsn</span>.</h2>
     <div class="cta">
-      <a class="btn btn-primary" data-dl="setup" href="https://github.com/phantasmat2018/Switchcraft-AI/releases/download/v1.6.0/SwitchcraftSetup.exe"><svg class="ic" aria-hidden="true" viewBox="0 0 256 256" fill="currentColor"><path d="M224,144v64a8,8,0,0,1-8,8H40a8,8,0,0,1-8-8V144a8,8,0,0,1,16,0v56H208V144a8,8,0,0,1,16,0Zm-101.66,5.66a8,8,0,0,0,11.32,0l40-40a8,8,0,0,0-11.32-11.32L136,124.69V32a8,8,0,0,0-16,0v92.69L93.66,98.34a8,8,0,0,0-11.32,11.32Z"/></svg>Завантажити для Windows</a>
+      <a class="btn btn-primary" data-dl="setup" href="https://github.com/phantasmat2018/Switchcraft-AI/releases/latest/download/SwitchcraftSetup.exe"><svg class="ic" aria-hidden="true" viewBox="0 0 256 256" fill="currentColor"><path d="M224,144v64a8,8,0,0,1-8,8H40a8,8,0,0,1-8-8V144a8,8,0,0,1,16,0v56H208V144a8,8,0,0,1,16,0Zm-101.66,5.66a8,8,0,0,0,11.32,0l40-40a8,8,0,0,0-11.32-11.32L136,124.69V32a8,8,0,0,0-16,0v92.69L93.66,98.34a8,8,0,0,0-11.32,11.32Z"/></svg>Завантажити для Windows</a>
       <a class="btn btn-ghost" href="https://github.com/phantasmat2018/Switchcraft-AI/releases/latest">Усі релізи</a>
     </div>
     <details class="build">
@@ -174,7 +176,7 @@
 </main>
 
 <footer class="foot">
-  <span>Switchcraft AI <span data-rel="vnum">1.6.0</span></span>
+  <span>Switchcraft AI <span data-rel="vnum">1.6.1</span></span>
   <a href="https://github.com/phantasmat2018/Switchcraft-AI">Вихідний код</a>
   <a href="https://github.com/phantasmat2018/Switchcraft-AI/blob/main/THIRD-PARTY.md">Сторонні компоненти</a>
 </footer>
