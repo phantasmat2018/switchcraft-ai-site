@@ -267,18 +267,17 @@ kbd.wide{min-width:5.2rem}
 .calc-note{margin:1.4rem 0 0;font-size:.88rem;color:var(--ink-3);max-width:34ch}
 .calc-out{position:relative;padding:clamp(1.5rem,3.5vw,2.5rem);background:linear-gradient(160deg,rgba(131,189,170,.08),transparent 60%)}
 .calc-label{margin:0;color:var(--ink-2)}
-.calc-big{margin:.6rem 0 1rem;display:flex;flex-wrap:wrap;align-items:baseline;gap:.15em .3em;font:700 clamp(3.4rem,9vw,7rem)/.95 var(--display);letter-spacing:-.04em;color:var(--ink)}
+.calc-big{margin:.6rem 0 1rem;display:flex;flex-wrap:nowrap;align-items:baseline;gap:.15em .3em;font:700 clamp(3rem,6vw,5.4rem)/.95 var(--display);letter-spacing:-.04em;color:var(--ink);white-space:nowrap}
 .calc-u{font:600 clamp(1rem,2vw,1.4rem)/1 var(--body);letter-spacing:0;color:var(--sage);margin:0 .5em 0 .1em}
 .calc-eq{margin:0;color:var(--ink-2);font-variant-numeric:tabular-nums}
 .calc-eq span{color:var(--ink);font-weight:600}
 .calc-win{margin:1.6rem 0 0;padding-top:1.2rem;border-top:1px dashed var(--line-2);color:var(--ink-2)}
 .calc-win b{color:var(--sage)}
 /* odometer */
-.odo{--rh:1.25em;display:inline-flex;height:var(--rh);line-height:var(--rh);overflow:hidden;font-variant-numeric:tabular-nums;margin:-.12em 0}
-.odo .d{display:inline-block;width:.7em;text-align:center;position:relative;height:var(--rh);overflow:hidden}
+.odo{--rh:1.25em;display:inline-flex;height:var(--rh);line-height:var(--rh);overflow:hidden;letter-spacing:0;font-variant-numeric:tabular-nums;margin:-.12em 0}
+.odo .d{display:inline-block;text-align:center;position:relative;height:var(--rh);overflow:hidden;padding:0 .02em}
 .odo .r{display:flex;flex-direction:column;transition:transform 900ms var(--ease-out);transition-delay:calc(var(--k,0)*60ms)}
 .odo .r>span{height:var(--rh);line-height:var(--rh);display:block}
-.calc-n .odo .d{width:.76em}
 /* range */
 #calc-n{-webkit-appearance:none;appearance:none;width:100%;height:44px;background:transparent;margin:0;cursor:pointer;touch-action:pan-y}
 #calc-n::-webkit-slider-runnable-track{height:6px;border-radius:99px;background:linear-gradient(90deg,var(--warn) 0 var(--p,19%),var(--line-2) var(--p,19%))}
