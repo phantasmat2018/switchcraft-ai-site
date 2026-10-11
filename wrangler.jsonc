@@ -1,5 +1,6 @@
 {
   "name": "switchcraft-ai",
+  "main": "src/index.js",
   "compatibility_date": "2026-10-01",
   "preview_urls": false,
   "workers_dev": true,
@@ -9,5 +10,5 @@
     { "pattern": "switchcraft.com.ua", "custom_domain": true },
     { "pattern": "www.switchcraft.com.ua", "custom_domain": true }
   ],
-  "assets": { "directory": "./public", "not_found_handling": "404-page" }
+  "assets": { "directory": "./public", "binding": "ASSETS", "run_worker_first": ["/og.jpg", "/apple-touch-icon.png"], "not_found_handling": "404-page" }
 }

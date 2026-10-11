@@ -223,3 +223,10 @@ kbd.wide{min-width:5.2rem}
   .motion .steps li:not(:last-child)::after{transform:none}
   .motion .steps.in li::before,.motion .hotkeys li.chord kbd,.motion .btn.shine::after{animation:none}
 }
+
+/* ---------- FAQ ---------- */
+.faq h2{margin-bottom:2rem}
+.qas{display:grid;grid-template-columns:repeat(2,1fr);gap:2rem 3rem}
+.qa h3{font-size:1.05rem;line-height:1.35;margin:0 0 .5rem;color:var(--ink)}
+.qa p{margin:0;color:var(--ink-2);max-width:38rem}
+@media (max-width:760px){.qas{grid-template-columns:1fr;gap:1.6rem}}
