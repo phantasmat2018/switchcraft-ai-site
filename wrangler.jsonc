@@ -2,5 +2,10 @@
   "name": "switchcraft-ai",
   "compatibility_date": "2026-10-01",
   "preview_urls": false,
+  "workers_dev": true,
+  "routes": [
+    { "pattern": "switchcraft.pp.ua", "custom_domain": true },
+    { "pattern": "www.switchcraft.pp.ua", "custom_domain": true }
+  ],
   "assets": { "directory": "./public", "not_found_handling": "404-page" }
 }
