@@ -245,3 +245,49 @@
   }, { threshold: 0.6 });
   io.observe(el);
 })();
+
+/* ---------- Cost calculator with odometer digits ---------- */
+(() => {
+  const range = document.getElementById("calc-n");
+  if (!range) return;
+  const SEC = 5, DAYS = 250, WORDS_PER = 1;
+  const odo = {};
+  document.querySelectorAll("[data-odo]").forEach(el => { odo[el.dataset.odo] = el; });
+  const build = (el, str) => {
+    if (el.dataset.len == str.length) return;
+    el.dataset.len = str.length;
+    el.innerHTML = [...str].map((_, i) => `<span class="d"><span class="r" style="--k:${i}">${"0123456789".split("").map(n => `<span>${n}</span>`).join("")}</span></span>`).join("");
+  };
+  const set = (el, value, pad) => {
+    const str = String(value).padStart(pad || 1, "0");
+    build(el, str);
+    el.setAttribute("aria-label", str);
+    [...el.querySelectorAll(".r")].forEach((r, i) => { r.style.transform = `translateY(-${+str[i]}em)`; });
+  };
+  const fmt = n => n.toLocaleString("uk-UA", { maximumFractionDigits: 1 });
+  const box = document.querySelector(".calc-box");
+  let shown = false;
+  const update = () => {
+    const n = +range.value;
+    range.style.setProperty("--p", ((n - 1) / 99 * 100) + "%");
+    box && box.style.setProperty("--gx", (20 + (n - 1) / 99 * 70) + "%");
+    set(odo.n, shown ? n : 0);
+    const total = n * SEC * DAYS, h = Math.floor(total / 3600), m = Math.round(total % 3600 / 60);
+    set(odo.h, shown ? h : 0); set(odo.m, shown ? m : 0, 2);
+    const films = total / 3600 / 2;
+    document.querySelector('[data-eq="films"]').textContent = fmt(Math.round(films * 10) / 10);
+    const words = n * DAYS * WORDS_PER;
+    document.querySelector('[data-eq="words"]').textContent = words.toLocaleString("uk-UA");
+    const pl = (v, one, few, many) => { const a = v % 10, b = v % 100; return a === 1 && b !== 11 ? one : a >= 2 && a <= 4 && (b < 12 || b > 14) ? few : many; };
+    const f = Math.round(films * 10) / 10;
+    document.querySelector('[data-eq="films-w"]').textContent = !Number.isInteger(f) ? "фільму" : pl(f, "фільм", "фільми", "фільмів");
+    document.querySelector('[data-eq="n-w"]').textContent = pl(n, "раз", "рази", "разів");
+    document.querySelector('[data-eq="words-w"]').textContent = pl(words, "переписане слово", "переписані слова", "переписаних слів");
+  };
+  range.addEventListener("input", update);
+  update();
+  const io = "IntersectionObserver" in window ? new IntersectionObserver(es => {
+    if (!es[0].isIntersecting) return; io.disconnect(); shown = true; requestAnimationFrame(update);
+  }, { threshold: 0.4 }) : null;
+  if (io) io.observe(document.querySelector(".calc-box")); else { shown = true; update(); }
+})();

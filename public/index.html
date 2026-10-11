@@ -160,11 +160,22 @@
     </ul>
   </section>
 
-  <section class="final" aria-labelledby="final-h">
-    <h2 id="final-h">Останній раз пишете <span class="mono wrong">ghbdsn</span>.</h2>
-    <div class="cta">
-      <a class="btn btn-primary" data-dl="setup" href="https://github.com/phantasmat2018/Switchcraft-AI/releases/latest/download/SwitchcraftSetup.exe"><svg class="ic" aria-hidden="true" viewBox="0 0 256 256" fill="currentColor"><path d="M224,144v64a8,8,0,0,1-8,8H40a8,8,0,0,1-8-8V144a8,8,0,0,1,16,0v56H208V144a8,8,0,0,1,16,0Zm-101.66,5.66a8,8,0,0,0,11.32,0l40-40a8,8,0,0,0-11.32-11.32L136,124.69V32a8,8,0,0,0-16,0v92.69L93.66,98.34a8,8,0,0,0-11.32,11.32Z"/></svg>Завантажити для Windows</a>
-      <a class="btn btn-ghost" href="https://github.com/phantasmat2018/Switchcraft-AI/releases/latest">Усі релізи</a>
+  <section class="final calc" aria-labelledby="final-h">
+    <p class="calc-kicker">Порахуйте самі</p>
+    <h2 id="final-h">Скільки коштує вам <span class="mono wrong">ghbdsn</span>?</h2>
+    <div class="calc-box">
+      <div class="calc-in">
+        <label for="calc-n">Скільки разів на день ви пишете не в тій розкладці</label>
+        <div class="calc-n" aria-hidden="true"><span class="odo" data-odo="n">20</span><span class="calc-unit" data-eq="n-w">разів</span></div>
+        <input id="calc-n" type="range" min="1" max="100" value="20" step="1">
+        <p class="calc-note">Кожна помилка — це помітити, стерти, перемкнути розкладку й набрати знову. Рахуємо ~5 секунд і 250 робочих днів на рік.</p>
+      </div>
+      <div class="calc-out" aria-live="polite">
+        <p class="calc-label">Ви втрачаєте за рік</p>
+        <p class="calc-big"><span class="odo" data-odo="h">6</span><span class="calc-u">год</span> <span class="odo" data-odo="m">57</span><span class="calc-u">хв</span></p>
+        <p class="calc-eq">Це як <span data-eq="films">3,5</span> <i data-eq="films-w">фільму</i> по дві години · <span data-eq="words">5 000</span> <i data-eq="words-w">переписаних слів</i></p>
+        <p class="calc-win">Switchcraft виправляє це <b>за мить</b> — після пробілу, сам.</p>
+      </div>
     </div>
     <details class="build">
       <summary>Зібрати з вихідного коду</summary>
