@@ -41,3 +41,9 @@ Switchcraft AI визначає мову за допомогою нейроме�
 
 ### Скільки коштує Switchcraft AI?
 Програму можна безкоштовно завантажити з GitHub: інсталятор (~62 МБ) або портативну версію. Вихідний код доступний на GitHub.
+
+## Website languages
+- Ukrainian (default): https://switchcraft.com.ua/
+- English: https://switchcraft.com.ua/en/
+- Russian: https://switchcraft.com.ua/ru/
+The website is available in three languages. The Windows app interface is Ukrainian; these website translations do not change the app interface. The browser demo remains EN ↔ Ukrainian on all pages.

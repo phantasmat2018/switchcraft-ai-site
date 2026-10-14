@@ -1,3 +1,6 @@
+/* Shared UI strings; the demo intentionally stays EN ↔ UK on every page. */
+const SC_TEXT = ({"uk": {"locale": "uk-UA", "mb": "МБ", "version": "Версія ", "released": " · вийшла ", "hint": " наберіть щось…", "copied": "Скопійовано", "corrected": "Виправлено → ", "chars": "Символів: ", "untouched": " · без змін, без запису", "password": "Switchcraft сюди не дивиться", "films": ["фільм", "фільми", "фільмів", "фільму"], "times": ["раз", "рази", "разів"], "words": ["переписане слово", "переписані слова", "переписаних слів"]}, "en": {"locale": "en-US", "mb": "MB", "version": "Version ", "released": " · released ", "hint": " type something…", "copied": "Copied", "corrected": "Corrected → ", "chars": "Characters: ", "untouched": " · unchanged, not logged", "password": "Switchcraft does not look here", "films": ["movie", "movies", "movies", "movies"], "times": ["time", "times", "times"], "words": ["retyped word", "retyped words", "retyped words"]}, "ru": {"locale": "ru-RU", "mb": "МБ", "version": "Версия ", "released": " · выпущена ", "hint": " наберите что-нибудь…", "copied": "Скопировано", "corrected": "Исправлено → ", "chars": "Символов: ", "untouched": " · без изменений, без записи", "password": "Switchcraft сюда не смотрит", "films": ["фильм", "фильма", "фильмов", "фильма"], "times": ["раз", "раза", "раз"], "words": ["переписанное слово", "переписанных слова", "переписанных слов"]}})[document.documentElement.lang] || {"locale": "uk-UA", "mb": "МБ", "version": "Версія ", "released": " · вийшла ", "hint": " наберіть щось…", "copied": "Скопійовано", "corrected": "Виправлено → ", "chars": "Символів: ", "untouched": " · без змін, без запису", "password": "Switchcraft сюди не дивиться", "films": ["фільм", "фільми", "фільмів", "фільму"], "times": ["раз", "рази", "разів"], "words": ["переписане слово", "переписані слова", "переписаних слів"]};
+
 (() => {
   const EN = "qwertyuiop[]asdfghjkl;'zxcvbnm,.`";
   const UK = "йцукенгшщзхїфівапролджєячсмитьбюʼ";
@@ -62,7 +65,7 @@
   }
   function setLang(l) {
     if (l === lang) return;
-    lang = l; pill.textContent = l;
+    lang = l; pill.textContent = l === "УК" && document.documentElement.lang !== "uk" ? "UK" : l;
     if (kb) kb.dataset.layout = l === "EN" ? "en" : "uk";
     pill.classList.remove("flash"); void pill.offsetWidth; pill.classList.add("flash");
     setTimeout(() => pill.classList.remove("flash"), 320);
@@ -90,7 +93,7 @@
     if (seenWords > fixedCount && lastLang) setLang(lastLang);
     fixedCount = seenWords;
     if (showCaret) { const c = document.createElement("span"); c.className = "caret"; out.append(c); }
-    if (!raw) { const h = document.createElement("span"); h.className = "hint"; h.textContent = " наберіть щось…"; if (document.activeElement === input) out.append(h); }
+    if (!raw) { const h = document.createElement("span"); h.className = "hint"; h.textContent = SC_TEXT.hint; if (document.activeElement === input) out.append(h); }
   }
 
   // autoplay
@@ -117,8 +120,8 @@
 /* ---------- Live release info from GitHub ---------- */
 (() => {
   const KEY = "sc-release-v2"; try { sessionStorage.removeItem("sc-release-v1"); } catch {}
-  const fmtSize = b => (b / 1048576).toLocaleString("uk-UA", { maximumFractionDigits: 1 }) + " МБ";
-  const fmtDate = d => new Date(d).toLocaleDateString("uk-UA", { day: "numeric", month: "long", year: "numeric" });
+  const fmtSize = b => (b / 1048576).toLocaleString(SC_TEXT.locale, { maximumFractionDigits: 1 }) + " " + SC_TEXT.mb;
+  const fmtDate = d => new Date(d).toLocaleDateString(SC_TEXT.locale, { day: "numeric", month: "long", year: "numeric" });
   function apply(r) {
     if (!r || !r.tag_name) return;
     const v = r.tag_name.replace(/^v/, "");
@@ -127,10 +130,10 @@
     const zip = assets.find(a => /portable.*\.zip$/i.test(a.name));
     if (setup) document.querySelectorAll('[data-dl="setup"]').forEach(a => a.href = setup.browser_download_url);
     if (zip) document.querySelectorAll('[data-dl="portable"]').forEach(a => a.href = zip.browser_download_url);
-    document.querySelectorAll('[data-rel="version"]').forEach(e => e.textContent = "Версія " + v);
+    document.querySelectorAll('[data-rel="version"]').forEach(e => e.textContent = SC_TEXT.version + v);
     document.querySelectorAll('[data-rel="vnum"]').forEach(e => e.textContent = v);
     if (setup) document.querySelectorAll('[data-rel="size"]').forEach(e => e.textContent = fmtSize(setup.size));
-    if (r.published_at) document.querySelectorAll('[data-rel="date"]').forEach(e => e.textContent = " · вийшла " + fmtDate(r.published_at));
+    if (r.published_at) document.querySelectorAll('[data-rel="date"]').forEach(e => e.textContent = SC_TEXT.released + fmtDate(r.published_at));
   }
   try { const c = JSON.parse(sessionStorage.getItem(KEY) || "null"); if (c && Date.now() - c.t < 6e5) return apply(c.r); } catch {}
   fetch("https://api.github.com/repos/phantasmat2018/Switchcraft-AI/releases/latest", { headers: { Accept: "application/vnd.github+json" } })
@@ -155,7 +158,7 @@
     const text = b.dataset.copy ?? document.getElementById(b.dataset.copyTarget)?.innerText ?? "";
     try { await navigator.clipboard.writeText(text); } catch { return; }
     const span = b.querySelector("span"); const prev = span?.textContent;
-    b.classList.add("done"); if (span) span.textContent = "Скопійовано";
+    b.classList.add("done"); if (span) span.textContent = SC_TEXT.copied;
     setTimeout(() => { b.classList.remove("done"); if (span) span.textContent = prev; }, 1600);
   });
 })();
@@ -189,12 +192,12 @@
     const fixed = words.map(w => { if (/^\s*$/.test(w)) return w; const d = decide(w); if (d) { changed++; return d.text; } return w; }).join("");
     if (changed) {
       const pos = t.selectionStart; t.value = fixed; t.setSelectionRange(fixed.length, fixed.length);
-      ts.textContent = "Виправлено → " + fixed.trim().split(/\s+/).pop(); ts.classList.add("ok");
+      ts.textContent = SC_TEXT.corrected + fixed.trim().split(/\s+/).pop(); ts.classList.add("ok");
       t.classList.remove("flash"); void t.offsetWidth; t.classList.add("flash");
     }
   });
   p.addEventListener("input", () => {
-    ps.textContent = p.value ? "Символів: " + p.value.length + " · без змін, без запису" : "Switchcraft сюди не дивиться";
+    ps.textContent = p.value ? SC_TEXT.chars + p.value.length + SC_TEXT.untouched : SC_TEXT.password;
   });
 })();
 
@@ -264,7 +267,7 @@
     el.setAttribute("aria-label", str);
     [...el.querySelectorAll(".r")].forEach((r, i) => { r.style.transform = `translateY(calc(var(--rh) * -${+str[i]}))`; });
   };
-  const fmt = n => n.toLocaleString("uk-UA", { maximumFractionDigits: 1 });
+  const fmt = n => n.toLocaleString(SC_TEXT.locale, { maximumFractionDigits: 1 });
   const box = document.querySelector(".calc-box");
   let shown = false;
   const update = () => {
@@ -277,12 +280,12 @@
     const films = total / 3600 / 2;
     document.querySelector('[data-eq="films"]').textContent = fmt(Math.round(films * 10) / 10);
     const words = n * DAYS * WORDS_PER;
-    document.querySelector('[data-eq="words"]').textContent = words.toLocaleString("uk-UA");
-    const pl = (v, one, few, many) => { const a = v % 10, b = v % 100; return a === 1 && b !== 11 ? one : a >= 2 && a <= 4 && (b < 12 || b > 14) ? few : many; };
+    document.querySelector('[data-eq="words"]').textContent = words.toLocaleString(SC_TEXT.locale);
+    const pl = (v, one, few, many) => { if (document.documentElement.lang === "en") return v === 1 ? one : many; const a = v % 10, b = v % 100; return a === 1 && b !== 11 ? one : a >= 2 && a <= 4 && (b < 12 || b > 14) ? few : many; };
     const f = Math.round(films * 10) / 10;
-    document.querySelector('[data-eq="films-w"]').textContent = !Number.isInteger(f) ? "фільму" : pl(f, "фільм", "фільми", "фільмів");
-    document.querySelector('[data-eq="n-w"]').textContent = pl(n, "раз", "рази", "разів");
-    document.querySelector('[data-eq="words-w"]').textContent = pl(words, "переписане слово", "переписані слова", "переписаних слів");
+    document.querySelector('[data-eq="films-w"]').textContent = !Number.isInteger(f) ? SC_TEXT.films[3] : pl(f, ...SC_TEXT.films);
+    document.querySelector('[data-eq="n-w"]').textContent = pl(n, ...SC_TEXT.times);
+    document.querySelector('[data-eq="words-w"]').textContent = pl(words, ...SC_TEXT.words);
   };
   range.addEventListener("input", update);
   update();
@@ -306,3 +309,8 @@
     if (cp) send(cp.dataset.copyTarget ? "copy_build_commands" : "copy_site_link", {});
   });
 })();
+
+/* Keep the current section when switching language, without forced redirects. */
+document.querySelectorAll('.language-switch a').forEach(a => {
+  a.addEventListener('click', () => { if (location.hash) a.hash = location.hash; });
+});

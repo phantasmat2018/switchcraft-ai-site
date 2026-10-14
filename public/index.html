@@ -1,260 +1,248 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="uk">
 <head>
-<meta charset="utf-8">
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-RMN6V97H55"></script>
+<meta charset="utf-8"/>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-RMN6V97H55"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-RMN6V97H55');</script>
-
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/>
 <title>Switchcraft AI — автоматичний перемикач розкладки клавіатури для Windows з ШІ</title>
-<meta name="description" content="Switchcraft AI автоматично виправляє текст, набраний не в тій розкладці (ghbdsn → привіт), і перемикає EN / УК / RU. Локальна нейромережа без інтернету, український інтерфейс, Windows 10/11. Альтернатива Punto Switcher.">
-<meta name="theme-color" content="#0f1916">
-<link rel="icon" href="/favicon.svg" type="image/svg+xml">
-<meta name="robots" content="index, follow, max-image-preview:large">
-<link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<link rel="manifest" href="/site.webmanifest">
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="Switchcraft AI">
-<meta property="og:locale" content="uk_UA">
-<meta property="og:title" content="Switchcraft AI — ghbdsn → привіт">
-<meta property="og:description" content="Автоматичний перемикач розкладки для Windows з українським інтерфейсом і локальним ШІ.">
-<meta property="og:image" content="https://switchcraft.com.ua/og.jpg">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Switchcraft AI: ghbdsn перетворюється на привіт">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://switchcraft.com.ua/og.jpg">
-<script type="application/ld+json">[{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Switchcraft AI", "alternateName": "Switchcraft", "description": "Розумний перемикач розкладки клавіатури для Windows: автоматично виправляє текст, набраний не в тій розкладці (EN / УК / RU), за допомогою локальної нейромережі Laya або хмарного TypeSafe AI.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Windows 10, Windows 11 (x64)", "softwareVersion": "1.6.3", "inLanguage": "uk", "url": "https://switchcraft.com.ua/", "downloadUrl": "https://github.com/phantasmat2018/Switchcraft-AI/releases/latest/download/SwitchcraftSetup.exe", "installUrl": "https://github.com/phantasmat2018/Switchcraft-AI/releases/latest", "fileSize": "62 MB", "image": "https://switchcraft.com.ua/og.jpg", "screenshot": "https://switchcraft.com.ua/og.jpg", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "UAH"}, "author": {"@type": "Person", "name": "phantasmat2018", "url": "https://github.com/phantasmat2018"}, "codeRepository": "https://github.com/phantasmat2018/Switchcraft-AI", "featureList": ["Автовиправлення EN / УК / RU після пробілу або Enter", "Локальна нейромережа Laya (mmBERT) без інтернету, CPU або NVIDIA CUDA", "Хмарне розпізнавання TypeSafe AI", "Перевірка словниками Hunspell", "Автоматичне перемикання розкладки", "Ігнорує поля паролів", "Гарячі клавіші Ctrl+Alt+Space, Ctrl+Alt+Backspace", "Без прав адміністратора"]}, {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Що таке Switchcraft AI?", "acceptedAnswer": {"@type": "Answer", "text": "Switchcraft AI — програма для Windows 10 і 11, яка автоматично виправляє текст, набраний не в тій розкладці клавіатури, і перемикає розкладку. Наприклад, «ghbdsn» стає «привіт». Підтримує українську, англійську й російську мови та має український інтерфейс."}}, {"@type": "Question", "name": "Чим Switchcraft AI відрізняється від Punto Switcher?", "acceptedAnswer": {"@type": "Answer", "text": "Switchcraft AI визначає мову за допомогою нейромережі, а не лише словників: локальної моделі Laya (mmBERT), яка працює без інтернету, або хмарного TypeSafe AI. Варіанти додатково звіряються з українським і російським словниками Hunspell. Програма має повністю український інтерфейс і не потребує прав адміністратора."}}, {"@type": "Question", "name": "Чи працює Switchcraft AI без інтернету?", "acceptedAnswer": {"@type": "Answer", "text": "Так. У режимі Laya нейромережа (~599 МБ) працює повністю на вашому комп’ютері — на процесорі або відеокарті NVIDIA через CUDA. Інтернет потрібен лише для режиму TypeSafe AI і для перевірки оновлень."}}, {"@type": "Question", "name": "Чи бачить Switchcraft AI мої паролі?", "acceptedAnswer": {"@type": "Answer", "text": "Ні. Поля паролів, менеджери паролів і захищені форми програма пропускає автоматично. Історія виправлень (до 50 записів) зберігається лише в оперативній пам’яті поточного сеансу й зникає після закриття програми."}}, {"@type": "Question", "name": "Як скасувати автоматичне виправлення?", "acceptedAnswer": {"@type": "Answer", "text": "Натисніть Ctrl + Alt + Backspace — текст повернеться до набраного. Скасоване слово можна одразу додати до винятків, щоб програма більше його не змінювала."}}, {"@type": "Question", "name": "Як виправити вже набраний текст?", "acceptedAnswer": {"@type": "Answer", "text": "Виділіть текст і натисніть Ctrl + Alt + Space. Ctrl + Alt + 1, 2 або 3 примусово перетворюють виділення на українську, англійську або російську розкладку."}}, {"@type": "Question", "name": "Де працює Switchcraft AI?", "acceptedAnswer": {"@type": "Answer", "text": "У більшості програм Windows: перевірено справжнім набором у Chrome і Edge (зокрема Gmail і Telegram Web), Блокноті, Notepad++ і VS Code. В адресному рядку браузера виправляються пошукові запити, а адреси на кшталт google.com не змінюються."}}, {"@type": "Question", "name": "Скільки коштує Switchcraft AI?", "acceptedAnswer": {"@type": "Answer", "text": "Програму можна безкоштовно завантажити з GitHub: інсталятор (~62 МБ) або портативну версію. Вихідний код доступний на GitHub."}}]}, {"@context": "https://schema.org", "@type": "WebSite", "name": "Switchcraft AI", "url": "https://switchcraft.com.ua/", "inLanguage": "uk"}]</script>
-<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
-<link rel="canonical" href="https://switchcraft.com.ua/">
-<meta property="og:url" content="https://switchcraft.com.ua/">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource-variable/unbounded@5/index.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource-variable/onest@5/index.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource-variable/jetbrains-mono@5/index.css">
-<link rel="stylesheet" href="/styles.css?v=10">
-<script defer src="/app.js?v=10"></script>
-</head>
+<meta content="Switchcraft AI автоматично виправляє текст, набраний не в тій розкладці (ghbdsn → привіт), і перемикає EN / УК / RU. Локальна нейромережа без інтернету, український інтерфейс, Windows 10/11. Альтернатива Punto Switcher." name="description"/>
+<meta content="#0f1916" name="theme-color"/>
+<link href="/favicon.svg" rel="icon" type="image/svg+xml"/>
+<meta content="index, follow, max-image-preview:large" name="robots"/>
+<link href="/apple-touch-icon.png" rel="apple-touch-icon"/>
+<link href="/site.webmanifest" rel="manifest"/>
+<meta content="website" property="og:type"/>
+<meta content="Switchcraft AI" property="og:site_name"/>
+<meta content="uk_UA" property="og:locale"/>
+<meta content="Switchcraft AI — ghbdsn → привіт" property="og:title"/>
+<meta content="Автоматичний перемикач розкладки для Windows з українським інтерфейсом і локальним ШІ." property="og:description"/>
+<meta content="https://switchcraft.com.ua/og.jpg" property="og:image"/>
+<meta content="1200" property="og:image:width"/>
+<meta content="630" property="og:image:height"/>
+<meta content="Switchcraft AI: ghbdsn перетворюється на привіт" property="og:image:alt"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="https://switchcraft.com.ua/og.jpg" name="twitter:image"/>
+<script type="application/ld+json">[{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Switchcraft AI", "alternateName": "Switchcraft", "description": "Switchcraft AI автоматично виправляє текст, набраний не в тій розкладці (ghbdsn → привіт), і перемикає EN / УК / RU. Локальна нейромережа без інтернету, український інтерфейс, Windows 10/11. Альтернатива Punto Switcher.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Windows 10, Windows 11 (x64)", "softwareVersion": "1.6.3", "inLanguage": "uk", "url": "https://switchcraft.com.ua/", "downloadUrl": "https://github.com/phantasmat2018/Switchcraft-AI/releases/latest/download/SwitchcraftSetup.exe", "installUrl": "https://github.com/phantasmat2018/Switchcraft-AI/releases/latest", "fileSize": "62 MB", "image": "https://switchcraft.com.ua/og.jpg", "screenshot": "https://switchcraft.com.ua/og.jpg", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "UAH"}, "author": {"@type": "Person", "name": "phantasmat2018", "url": "https://github.com/phantasmat2018"}, "codeRepository": "https://github.com/phantasmat2018/Switchcraft-AI", "featureList": ["Автовиправлення EN / УК / RU після пробілу або Enter", "Локальна нейромережа Laya (mmBERT) без інтернету, CPU або NVIDIA CUDA", "Хмарне розпізнавання TypeSafe AI", "Перевірка словниками Hunspell", "Автоматичне перемикання розкладки", "Ігнорує поля паролів", "Гарячі клавіші Ctrl+Alt+Space, Ctrl+Alt+Backspace", "Без прав адміністратора"]}, {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Що таке Switchcraft AI?", "acceptedAnswer": {"@type": "Answer", "text": "Switchcraft AI — програма для Windows 10 і 11, яка автоматично виправляє текст, набраний не в тій розкладці клавіатури, і перемикає розкладку. Наприклад, «ghbdsn» стає «привіт». Підтримує українську, англійську й російську мови та має український інтерфейс."}}, {"@type": "Question", "name": "Чим Switchcraft AI відрізняється від Punto Switcher?", "acceptedAnswer": {"@type": "Answer", "text": "Switchcraft AI визначає мову за допомогою нейромережі, а не лише словників: локальної моделі Laya (mmBERT), яка працює без інтернету, або хмарного TypeSafe AI. Варіанти додатково звіряються з українським і російським словниками Hunspell. Програма має повністю український інтерфейс і не потребує прав адміністратора."}}, {"@type": "Question", "name": "Чи працює Switchcraft AI без інтернету?", "acceptedAnswer": {"@type": "Answer", "text": "Так. У режимі Laya нейромережа (~599 МБ) працює повністю на вашому комп’ютері — на процесорі або відеокарті NVIDIA через CUDA. Інтернет потрібен лише для режиму TypeSafe AI і для перевірки оновлень."}}, {"@type": "Question", "name": "Чи бачить Switchcraft AI мої паролі?", "acceptedAnswer": {"@type": "Answer", "text": "Ні. Поля паролів, менеджери паролів і захищені форми програма пропускає автоматично. Історія виправлень (до 50 записів) зберігається лише в оперативній пам’яті поточного сеансу й зникає після закриття програми."}}, {"@type": "Question", "name": "Як скасувати автоматичне виправлення?", "acceptedAnswer": {"@type": "Answer", "text": "Натисніть Ctrl + Alt + Backspace — текст повернеться до набраного. Скасоване слово можна одразу додати до винятків, щоб програма більше його не змінювала."}}, {"@type": "Question", "name": "Як виправити вже набраний текст?", "acceptedAnswer": {"@type": "Answer", "text": "Виділіть текст і натисніть Ctrl + Alt + Space. Ctrl + Alt + 1, 2 або 3 примусово перетворюють виділення на українську, англійську або російську розкладку."}}, {"@type": "Question", "name": "Де працює Switchcraft AI?", "acceptedAnswer": {"@type": "Answer", "text": "У більшості програм Windows: перевірено справжнім набором у Chrome і Edge (зокрема Gmail і Telegram Web), Блокноті, Notepad++ і VS Code. В адресному рядку браузера виправляються пошукові запити, а адреси на кшталт google.com не змінюються."}}, {"@type": "Question", "name": "Скільки коштує Switchcraft AI?", "acceptedAnswer": {"@type": "Answer", "text": "Програму можна безкоштовно завантажити з GitHub: інсталятор (~62 МБ) або портативну версію. Вихідний код доступний на GitHub."}}]}, {"@context": "https://schema.org", "@type": "WebSite", "name": "Switchcraft AI", "url": "https://switchcraft.com.ua/", "inLanguage": "uk"}]</script>
+<link crossorigin="" href="https://cdn.jsdelivr.net" rel="preconnect"/>
+<link href="https://switchcraft.com.ua/" rel="canonical"/>
+<meta content="https://switchcraft.com.ua/" property="og:url"/>
+<link href="https://cdn.jsdelivr.net/npm/@fontsource-variable/unbounded@5/index.css" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/@fontsource-variable/onest@5/index.css" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/@fontsource-variable/jetbrains-mono@5/index.css" rel="stylesheet"/>
+<link href="/styles.css?v=11" rel="stylesheet"/>
+<script defer="" src="/app.js?v=11"></script>
+<link href="https://switchcraft.com.ua/" hreflang="uk" rel="alternate"/><link href="https://switchcraft.com.ua/en/" hreflang="en" rel="alternate"/><meta content="en_US" property="og:locale:alternate"/><link href="https://switchcraft.com.ua/ru/" hreflang="ru" rel="alternate"/><meta content="ru_RU" property="og:locale:alternate"/><link href="https://switchcraft.com.ua/" hreflang="x-default" rel="alternate"/></head>
 <body>
 <a class="skip" href="#main">Перейти до змісту</a>
-
 <header class="nav">
-  <a class="brand" href="/" aria-label="Switchcraft AI — на головну">
-    <img src="/favicon.svg" width="32" height="32" alt="">
-    <span>Switchcraft <b>AI</b></span>
-  </a>
-  <nav aria-label="Розділи">
-    <a href="#engines">Як визначає мову</a>
-    <a href="#keys">Гарячі клавіші</a>
-    <a href="#privacy">Приватність</a>
-    <a href="#faq">Питання</a>
-    <a href="https://github.com/phantasmat2018/Switchcraft-AI" rel="noopener">GitHub</a>
-  </nav>
-  <a class="btn btn-sm" data-dl="setup" href="https://github.com/phantasmat2018/Switchcraft-AI/releases/latest/download/SwitchcraftSetup.exe">Завантажити для Windows</a>
-</header>
-
+<a aria-label="Switchcraft AI — на головну" class="brand" href="/">
+<img alt="" height="32" src="/favicon.svg" width="32"/>
+<span>Switchcraft <b>AI</b></span>
+</a>
+<nav aria-label="Розділи">
+<a href="#engines">Як визначає мову</a>
+<a href="#keys">Гарячі клавіші</a>
+<a href="#privacy">Приватність</a>
+<a href="#faq">Питання</a>
+<a href="https://github.com/phantasmat2018/Switchcraft-AI" rel="noopener">GitHub</a>
+</nav>
+<a class="btn btn-sm" data-dl="setup" href="https://github.com/phantasmat2018/Switchcraft-AI/releases/latest/download/SwitchcraftSetup.exe">Завантажити для Windows</a>
+<div aria-label="Мова сайту" class="language-switch" role="group"><a aria-current="page" aria-label="Українська" href="/" hreflang="uk" lang="uk">UA</a><a aria-label="English" href="/en/" hreflang="en" lang="en">EN</a><a aria-label="Русский" href="/ru/" hreflang="ru" lang="ru">RU</a></div></header>
 <main id="main">
-  <section class="hero">
-    <h1>Друкуйте. Розкладку <span class="nowrap">виправить</span> Switchcraft.</h1>
-    <p class="lede">Набрали <span class="mono wrong">ghbdsn</span> замість <span class="mono right">привіт</span>? Switchcraft AI помічає слово, набране не в тій розкладці, виправляє його після пробілу й сам перемикає мову. Англійська, українська, російська — без телеметрії й без запису тексту.</p>
-
-    <div class="cta">
-      <a class="btn btn-primary" data-dl="setup" href="https://github.com/phantasmat2018/Switchcraft-AI/releases/latest/download/SwitchcraftSetup.exe"><svg class="ic" aria-hidden="true" viewBox="0 0 256 256" fill="currentColor"><path d="M224,144v64a8,8,0,0,1-8,8H40a8,8,0,0,1-8-8V144a8,8,0,0,1,16,0v56H208V144a8,8,0,0,1,16,0Zm-101.66,5.66a8,8,0,0,0,11.32,0l40-40a8,8,0,0,0-11.32-11.32L136,124.69V32a8,8,0,0,0-16,0v92.69L93.66,98.34a8,8,0,0,0-11.32,11.32Z"/></svg>Завантажити для Windows</a>
-      <a class="btn btn-ghost" data-dl="portable" href="https://github.com/phantasmat2018/Switchcraft-AI/releases/download/v1.6.3/Switchcraft-AI-1.6.3-portable.zip">Портативна версія (.zip)</a>
-    </div>
-    <p class="meta"><span data-rel="version">Версія 1.6.3</span> · Windows 10/11 x64 · <span data-rel="size">62,4 МБ</span> · без прав адміністратора<span data-rel="date"></span></p>
-    <div class="notwin" id="notwin" hidden>
-      <p>Switchcraft працює на Windows. Надішліть собі посилання й завантажте на комп’ютері.</p>
-      <button class="btn btn-ghost btn-sm2" type="button" data-copy="https://switchcraft.com.ua"><svg class="ic" aria-hidden="true" viewBox="0 0 256 256" fill="currentColor"><path d="M216,32H88a8,8,0,0,0-8,8V80H40a8,8,0,0,0-8,8V216a8,8,0,0,0,8,8H168a8,8,0,0,0,8-8V176h40a8,8,0,0,0,8-8V40A8,8,0,0,0,216,32ZM160,208H48V96H160Zm48-48H176V88a8,8,0,0,0-8-8H96V48H208Z"/></svg><span>Скопіювати посилання</span></button>
-    </div>
-
-    <figure class="demo" aria-labelledby="demo-cap">
-      <div class="demo-bar">
-        <span class="demo-title">Спробуйте прямо тут</span>
-        <span class="layout-pill" id="layout" aria-live="polite">EN</span>
-      </div>
-      <div class="demo-field">
-        <div class="demo-out" id="demo-out" aria-live="polite"></div>
-        <label class="visually-hidden" for="demo-in">Наберіть текст в англійській розкладці</label>
-        <input id="demo-in" class="demo-in" type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Наберіть ghbdsn cdsn і натисніть пробіл">
-      </div>
-      <div class="kb" id="kb" data-layout="en" aria-hidden="true">
-        <div class="kb-row r0"><span class="k" data-k="q"><b>Q</b><i>Й</i></span><span class="k" data-k="w"><b>W</b><i>Ц</i></span><span class="k" data-k="e"><b>E</b><i>У</i></span><span class="k" data-k="r"><b>R</b><i>К</i></span><span class="k" data-k="t"><b>T</b><i>Е</i></span><span class="k" data-k="y"><b>Y</b><i>Н</i></span><span class="k" data-k="u"><b>U</b><i>Г</i></span><span class="k" data-k="i"><b>I</b><i>Ш</i></span><span class="k" data-k="o"><b>O</b><i>Щ</i></span><span class="k" data-k="p"><b>P</b><i>З</i></span><span class="k" data-k="["><b>[</b><i>Х</i></span><span class="k" data-k="]"><b>]</b><i>Ї</i></span></div>
-        <div class="kb-row r1"><span class="k" data-k="a"><b>A</b><i>Ф</i></span><span class="k" data-k="s"><b>S</b><i>І</i></span><span class="k" data-k="d"><b>D</b><i>В</i></span><span class="k" data-k="f"><b>F</b><i>А</i></span><span class="k" data-k="g"><b>G</b><i>П</i></span><span class="k" data-k="h"><b>H</b><i>Р</i></span><span class="k" data-k="j"><b>J</b><i>О</i></span><span class="k" data-k="k"><b>K</b><i>Л</i></span><span class="k" data-k="l"><b>L</b><i>Д</i></span><span class="k" data-k=";"><b>;</b><i>Ж</i></span><span class="k" data-k="'"><b>'</b><i>Є</i></span></div>
-        <div class="kb-row r2"><span class="k" data-k="z"><b>Z</b><i>Я</i></span><span class="k" data-k="x"><b>X</b><i>Ч</i></span><span class="k" data-k="c"><b>C</b><i>С</i></span><span class="k" data-k="v"><b>V</b><i>М</i></span><span class="k" data-k="b"><b>B</b><i>И</i></span><span class="k" data-k="n"><b>N</b><i>Т</i></span><span class="k" data-k="m"><b>M</b><i>Ь</i></span><span class="k" data-k=","><b>,</b><i>Б</i></span><span class="k" data-k="."><b>.</b><i>Ю</i></span></div>
-        <div class="kb-row r3"><span class="k space" data-k=" "><b>Space</b></span></div>
-      </div>
-      <figcaption id="demo-cap">Спрощена демонстрація в браузері для пари EN ↔ УК. У програмі мову визначає локальна нейромережа Laya або хмарний TypeSafe AI.</figcaption>
-    </figure>
-  </section>
-
-  <section class="section" id="engines" aria-labelledby="engines-h">
-    <div class="section-head">
-      <h2 id="engines-h">Два способи зрозуміти, якою мовою ви пишете</h2>
-      <p>Оберіть у налаштуваннях: «Налаштування → Як визначати мову». Перемкнутися можна будь-коли.</p>
-    </div>
-    <div class="engines" role="table" aria-label="Порівняння режимів">
-      <div class="erow ehead" role="row">
-        <span role="columnheader">Режим</span>
-        <span role="columnheader">Де працює</span>
-        <span role="columnheader">Інтернет</span>
-        <span role="columnheader">Коли обрати</span>
-      </div>
-      <div class="erow" role="row">
-        <span role="cell" class="ename"><b>Laya</b><small>локальна модель r4</small></span>
-        <span role="cell">На вашому ПК: CPU або NVIDIA CUDA. Нейромережа mmBERT, ~599 МБ</span>
-        <span role="cell"><i class="tag ok">Не потрібен</i></span>
-        <span role="cell">Хочете повну автономність і роботу без інтернету</span>
-      </div>
-      <div class="erow" role="row">
-        <span role="cell" class="ename"><b>TypeSafe AI</b><small>хмарний</small></span>
-        <span role="cell">Захищений API. Ключ зашифрований Windows DPAPI</span>
-        <span role="cell"><i class="tag">Потрібен</i></span>
-        <span role="cell">Слабкий ПК і бажання швидкого розпізнавання без завантаження моделі</span>
-      </div>
-    </div>
-  </section>
-
-  <section class="section split" aria-labelledby="laya-h">
-    <div>
-      <h2 id="laya-h">Laya за чотири кроки</h2>
-      <p>Інсталятор може підготувати модель одразу під час першого встановлення. Або зробіть це пізніше з налаштувань. Уже маєте r3? Натисніть <b>Оновити модель</b>: r4 точніша (99,9% слів проти 97,8%), а стару модель буде видалено.</p>
-    </div>
-    <ol class="steps">
-      <li>Відкрийте <b>Налаштування → Як визначати мову → Laya · локально</b>.</li>
-      <li>Натисніть <b>Завантажити й підготувати</b>.</li>
-      <li>Програма завантажить модель r4 (~<span class="num" data-count="599">599</span> МБ) з <a href="https://github.com/phantasmat2018/Switchcraft-AI/releases/tag/laya-r4">офіційного релізу</a> і перевірить контрольну суму SHA-256.</li>
-      <li>Оберіть прискорення: <b>Автоматично</b>, <b>CPU</b> або <b>NVIDIA CUDA</b>. Якщо відеокарту зайняла інша програма (вільно менше 1,5 ГБ), Laya сама перейде на CPU.</li>
-    </ol>
-  </section>
-
-  <section class="section" id="keys" aria-labelledby="keys-h">
-    <div class="section-head">
-      <h2 id="keys-h">Шість комбінацій, які варто запам’ятати</h2>
-      <p>Усі змінюються в «Налаштування → Гарячі клавіші». <span class="kb-hint">Спробуйте натиснути будь-яку з них просто зараз.</span></p>
-    </div>
-    <ul class="hotkeys">
-      <li data-code="Space"><span class="combo"><kbd>Ctrl</kbd><kbd>Alt</kbd><kbd class="wide">Space</kbd></span><span>Перетворити виділений текст</span></li>
-      <li data-code="Backspace"><span class="combo"><kbd>Ctrl</kbd><kbd>Alt</kbd><kbd class="wide">Backspace</kbd></span><span>Скасувати останнє автовиправлення</span></li>
-      <li data-code="KeyP"><span class="combo"><kbd>Ctrl</kbd><kbd>Alt</kbd><kbd>P</kbd></span><span>Пауза / відновити роботу</span></li>
-      <li data-code="Digit1"><span class="combo"><kbd>Ctrl</kbd><kbd>Alt</kbd><kbd>1</kbd></span><span>Виділення → українська</span></li>
-      <li data-code="Digit2"><span class="combo"><kbd>Ctrl</kbd><kbd>Alt</kbd><kbd>2</kbd></span><span>Виділення → англійська</span></li>
-      <li data-code="Digit3"><span class="combo"><kbd>Ctrl</kbd><kbd>Alt</kbd><kbd>3</kbd></span><span>Виділення → російська</span></li>
-    </ul>
-  </section>
-
-  <section class="section privacy" id="privacy" aria-labelledby="privacy-h">
-    <h2 id="privacy-h">Він бачить, що ви друкуєте. Тому він нічого не запам’ятовує.</h2>
-    <dl class="facts">
-      <div><dt>Паролі</dt><dd>Поля паролів, менеджери паролів і захищені форми ігноруються автоматично.</dd></div>
-      <div><dt>Текст</dt><dd>Жодного журналювання й жодних набраних паролів на диску.</dd></div>
-      <div><dt>Історія</dt><dd>До 50 останніх виправлень, лише в оперативній пам’яті поточної сесії.</dd></div>
-      <div><dt>Телеметрія</dt><dd>Немає. Ні сторонньої аналітики, ні «анонімної статистики».</dd></div>
-      <div><dt>Ключ API</dt><dd>Ключ TypeSafe шифрується Windows DPAPI для поточного користувача.</dd></div>
-      <div><dt>Налаштування</dt><dd>Лежать у <code>%LOCALAPPDATA%\Switchcraft</code>, імпорт та експорт у JSON.</dd></div>
-    </dl>
-    <div class="proof">
-      <div class="proof-head">
-        <h3>Перевірте самі</h3>
-        <p>Наберіть <span class="mono">ghbdsn</span> в обох полях і натисніть пробіл. Так само поводиться програма: у звичайному полі вона виправить слово, у полі пароля нічого не чіпатиме.</p>
-      </div>
-      <div class="proof-grid">
-        <label class="pf"><span class="pf-l">Звичайне поле</span><input id="pf-text" type="text" autocomplete="off" spellcheck="false" placeholder="ghbdsn"><span class="pf-s" id="pf-text-s" aria-live="polite">Чекає на пробіл</span></label>
-        <label class="pf"><span class="pf-l">Поле пароля</span><input id="pf-pass" type="password" autocomplete="new-password" placeholder="ghbdsn"><span class="pf-s" id="pf-pass-s" aria-live="polite">Switchcraft сюди не дивиться</span></label>
-      </div>
-    </div>
-  </section>
-
-  <section class="section more" aria-labelledby="more-h">
-    <h2 id="more-h">І ще дрібниці, які роблять його своїм</h2>
-    <ul class="ticks">
-      <li>Зберігає регістр: <span class="mono">Ghbdsn</span> стає <span class="mono">Привіт</span>, а <span class="mono">GHBDSN</span> — <span class="mono">ПРИВІТ</span>.</li>
-      <li>Звіряє кожне виправлення з українським і російським словниками Hunspell, щоб не підставити неіснуюче слово.</li>
-      <li>Виправляє й слово, набране одразу після кліку чи перемикання вікна; у полях пароля нічого не чіпає.</li>
-      <li>Не губить натискання: якщо ви друкуєте далі під час заміни, літери з’являться в тому ж порядку.</li>
-      <li>Виправляє й адреси: <span class="mono">пщщпдуюсщь</span> стає <span class="mono">google.com</span> після пробілу або Enter.</li>
-      <li>Розпізнає розкладку за нею самою, а не за мовою Windows: працюють і «Русский (Украина)», «English (Ukraine)», Ukrainian Enhanced та Dvorak.</li>
-      <li>Перевірено в Chrome і Edge (зокрема Gmail і Telegram Web), Блокноті, Notepad++ і VS Code. Для VS Code увімкніть <span class="mono">"editor.accessibilitySupport": "on"</span> — програма підкаже.</li>
-      <li>Працює в редакторах коду на Scintilla: виправлення спрацьовує і на Enter.</li>
-      <li>Навчається: скасоване виправлення можна одразу додати до винятків.</li>
-      <li>Списки програм-винятків, власні правила й заміни з пошуком.</li>
-      <li>Кнопка «Перевірити оновлення» знаходить найновішу стабільну версію на GitHub і чесно каже, якщо перевірка не вдалася.</li>
-      <li>Чисте видалення через «Програми та компоненти».</li>
-    </ul>
-  </section>
-
-  <section class="section faq" id="faq" aria-labelledby="faq-h">
-    <h2 id="faq-h">Питання й відповіді</h2>
-    <div class="qas">
-      <div class="qa"><h3>Що таке Switchcraft AI?</h3><p>Switchcraft AI — програма для Windows 10 і 11, яка автоматично виправляє текст, набраний не в тій розкладці клавіатури, і перемикає розкладку. Наприклад, «ghbdsn» стає «привіт». Підтримує українську, англійську й російську мови та має український інтерфейс.</p></div>
-      <div class="qa"><h3>Чим Switchcraft AI відрізняється від Punto Switcher?</h3><p>Switchcraft AI визначає мову за допомогою нейромережі, а не лише словників: локальної моделі Laya (mmBERT), яка працює без інтернету, або хмарного TypeSafe AI. Варіанти додатково звіряються з українським і російським словниками Hunspell. Програма має повністю український інтерфейс і не потребує прав адміністратора.</p></div>
-      <div class="qa"><h3>Чи працює Switchcraft AI без інтернету?</h3><p>Так. У режимі Laya нейромережа (~599 МБ) працює повністю на вашому комп’ютері — на процесорі або відеокарті NVIDIA через CUDA. Інтернет потрібен лише для режиму TypeSafe AI і для перевірки оновлень.</p></div>
-      <div class="qa"><h3>Чи бачить Switchcraft AI мої паролі?</h3><p>Ні. Поля паролів, менеджери паролів і захищені форми програма пропускає автоматично. Історія виправлень (до 50 записів) зберігається лише в оперативній пам’яті поточного сеансу й зникає після закриття програми.</p></div>
-      <div class="qa"><h3>Як скасувати автоматичне виправлення?</h3><p>Натисніть Ctrl + Alt + Backspace — текст повернеться до набраного. Скасоване слово можна одразу додати до винятків, щоб програма більше його не змінювала.</p></div>
-      <div class="qa"><h3>Як виправити вже набраний текст?</h3><p>Виділіть текст і натисніть Ctrl + Alt + Space. Ctrl + Alt + 1, 2 або 3 примусово перетворюють виділення на українську, англійську або російську розкладку.</p></div>
-      <div class="qa"><h3>Де працює Switchcraft AI?</h3><p>У більшості програм Windows: перевірено справжнім набором у Chrome і Edge (зокрема Gmail і Telegram Web), Блокноті, Notepad++ і VS Code. В адресному рядку браузера виправляються пошукові запити, а адреси на кшталт google.com не змінюються.</p></div>
-      <div class="qa"><h3>Скільки коштує Switchcraft AI?</h3><p>Програму можна безкоштовно завантажити з GitHub: інсталятор (~62 МБ) або портативну версію. Вихідний код доступний на GitHub.</p></div>
-    </div>
-  </section>
-
-  <section class="final calc" aria-labelledby="final-h">
-    <p class="calc-kicker">Порахуйте самі</p>
-    <h2 id="final-h">Скільки коштує вам <span class="mono wrong">ghbdsn</span>?</h2>
-    <div class="calc-box">
-      <div class="calc-in">
-        <label for="calc-n">Скільки разів на день ви пишете не в тій розкладці</label>
-        <div class="calc-n" aria-hidden="true"><span class="odo" data-odo="n">20</span><span class="calc-unit" data-eq="n-w">разів</span></div>
-        <input id="calc-n" type="range" min="1" max="100" value="20" step="1">
-        <p class="calc-note">Кожна помилка — це помітити, стерти, перемкнути розкладку й набрати знову. Рахуємо ~5 секунд і 250 робочих днів на рік.</p>
-      </div>
-      <div class="calc-out" aria-live="polite">
-        <p class="calc-label">Ви втрачаєте за рік</p>
-        <p class="calc-big"><span class="odo" data-odo="h">6</span><span class="calc-u">год</span> <span class="odo" data-odo="m">57</span><span class="calc-u">хв</span></p>
-        <p class="calc-eq">Це як <span data-eq="films">3,5</span> <i data-eq="films-w">фільму</i> по дві години · <span data-eq="words">5 000</span> <i data-eq="words-w">переписаних слів</i></p>
-        <p class="calc-win">Switchcraft виправляє це <b>за мить</b> — після пробілу, сам.</p>
-      </div>
-    </div>
-    <details class="build">
-      <summary>Зібрати з вихідного коду</summary>
-      <p>Потрібні Windows 10/11 x64, .NET SDK 8.0+ і NSIS 3.10 для інсталятора.</p>
-<div class="codebox"><button class="copy" type="button" data-copy-target="build-code" aria-label="Скопіювати команди"><svg class="ic" aria-hidden="true" viewBox="0 0 256 256" fill="currentColor"><path d="M216,32H88a8,8,0,0,0-8,8V80H40a8,8,0,0,0-8,8V216a8,8,0,0,0,8,8H168a8,8,0,0,0,8-8V176h40a8,8,0,0,0,8-8V40A8,8,0,0,0,216,32ZM160,208H48V96H160Zm48-48H176V88a8,8,0,0,0-8-8H96V48H208Z"/></svg><span>Копіювати</span></button><pre><code id="build-code">dotnet build src/Switchcraft.csproj -c Release
+<section class="hero">
+<h1>Друкуйте. Розкладку <span class="nowrap">виправить</span> Switchcraft.</h1>
+<p class="lede">Набрали <span class="mono wrong">ghbdsn</span> замість <span class="mono right">привіт</span>? Switchcraft AI помічає слово, набране не в тій розкладці, виправляє його після пробілу й сам перемикає мову. Англійська, українська, російська — без телеметрії й без запису тексту.</p>
+<div class="cta">
+<a class="btn btn-primary" data-dl="setup" href="https://github.com/phantasmat2018/Switchcraft-AI/releases/latest/download/SwitchcraftSetup.exe"><svg aria-hidden="true" class="ic" fill="currentColor" viewbox="0 0 256 256"><path d="M224,144v64a8,8,0,0,1-8,8H40a8,8,0,0,1-8-8V144a8,8,0,0,1,16,0v56H208V144a8,8,0,0,1,16,0Zm-101.66,5.66a8,8,0,0,0,11.32,0l40-40a8,8,0,0,0-11.32-11.32L136,124.69V32a8,8,0,0,0-16,0v92.69L93.66,98.34a8,8,0,0,0-11.32,11.32Z"></path></svg>Завантажити для Windows</a>
+<a class="btn btn-ghost" data-dl="portable" href="https://github.com/phantasmat2018/Switchcraft-AI/releases/download/v1.6.3/Switchcraft-AI-1.6.3-portable.zip">Портативна версія (.zip)</a>
+</div>
+<p class="meta"><span data-rel="version">Версія 1.6.3</span> · Windows 10/11 x64 · <span data-rel="size">62,4 МБ</span> · без прав адміністратора<span data-rel="date"></span></p>
+<div class="notwin" hidden="" id="notwin">
+<p>Switchcraft працює на Windows. Надішліть собі посилання й завантажте на комп’ютері.</p>
+<button class="btn btn-ghost btn-sm2" data-copy="https://switchcraft.com.ua/" type="button"><svg aria-hidden="true" class="ic" fill="currentColor" viewbox="0 0 256 256"><path d="M216,32H88a8,8,0,0,0-8,8V80H40a8,8,0,0,0-8,8V216a8,8,0,0,0,8,8H168a8,8,0,0,0,8-8V176h40a8,8,0,0,0,8-8V40A8,8,0,0,0,216,32ZM160,208H48V96H160Zm48-48H176V88a8,8,0,0,0-8-8H96V48H208Z"></path></svg><span>Скопіювати посилання</span></button>
+</div>
+<figure aria-labelledby="demo-cap" class="demo">
+<div class="demo-bar">
+<span class="demo-title">Спробуйте прямо тут</span>
+<span aria-live="polite" class="layout-pill" id="layout">EN</span>
+</div>
+<div class="demo-field">
+<div aria-live="polite" class="demo-out" id="demo-out"></div>
+<label class="visually-hidden" for="demo-in">Наберіть текст в англійській розкладці</label>
+<input autocapitalize="off" autocomplete="off" autocorrect="off" class="demo-in" id="demo-in" placeholder="Наберіть ghbdsn cdsn і натисніть пробіл" spellcheck="false" type="text"/>
+</div>
+<div aria-hidden="true" class="kb" data-layout="en" id="kb">
+<div class="kb-row r0"><span class="k" data-k="q"><b>Q</b><i>Й</i></span><span class="k" data-k="w"><b>W</b><i>Ц</i></span><span class="k" data-k="e"><b>E</b><i>У</i></span><span class="k" data-k="r"><b>R</b><i>К</i></span><span class="k" data-k="t"><b>T</b><i>Е</i></span><span class="k" data-k="y"><b>Y</b><i>Н</i></span><span class="k" data-k="u"><b>U</b><i>Г</i></span><span class="k" data-k="i"><b>I</b><i>Ш</i></span><span class="k" data-k="o"><b>O</b><i>Щ</i></span><span class="k" data-k="p"><b>P</b><i>З</i></span><span class="k" data-k="["><b>[</b><i>Х</i></span><span class="k" data-k="]"><b>]</b><i>Ї</i></span></div>
+<div class="kb-row r1"><span class="k" data-k="a"><b>A</b><i>Ф</i></span><span class="k" data-k="s"><b>S</b><i>І</i></span><span class="k" data-k="d"><b>D</b><i>В</i></span><span class="k" data-k="f"><b>F</b><i>А</i></span><span class="k" data-k="g"><b>G</b><i>П</i></span><span class="k" data-k="h"><b>H</b><i>Р</i></span><span class="k" data-k="j"><b>J</b><i>О</i></span><span class="k" data-k="k"><b>K</b><i>Л</i></span><span class="k" data-k="l"><b>L</b><i>Д</i></span><span class="k" data-k=";"><b>;</b><i>Ж</i></span><span class="k" data-k="'"><b>'</b><i>Є</i></span></div>
+<div class="kb-row r2"><span class="k" data-k="z"><b>Z</b><i>Я</i></span><span class="k" data-k="x"><b>X</b><i>Ч</i></span><span class="k" data-k="c"><b>C</b><i>С</i></span><span class="k" data-k="v"><b>V</b><i>М</i></span><span class="k" data-k="b"><b>B</b><i>И</i></span><span class="k" data-k="n"><b>N</b><i>Т</i></span><span class="k" data-k="m"><b>M</b><i>Ь</i></span><span class="k" data-k=","><b>,</b><i>Б</i></span><span class="k" data-k="."><b>.</b><i>Ю</i></span></div>
+<div class="kb-row r3"><span class="k space" data-k=" "><b>Space</b></span></div>
+</div>
+<figcaption id="demo-cap">Спрощена демонстрація в браузері для пари EN ↔ УК. У програмі мову визначає локальна нейромережа Laya або хмарний TypeSafe AI.</figcaption>
+</figure>
+</section>
+<section aria-labelledby="engines-h" class="section" id="engines">
+<div class="section-head">
+<h2 id="engines-h">Два способи зрозуміти, якою мовою ви пишете</h2>
+<p>Оберіть у налаштуваннях: «Налаштування → Як визначати мову». Перемкнутися можна будь-коли.</p>
+</div>
+<div aria-label="Порівняння режимів" class="engines" role="table">
+<div class="erow ehead" role="row">
+<span role="columnheader">Режим</span>
+<span role="columnheader">Де працює</span>
+<span role="columnheader">Інтернет</span>
+<span role="columnheader">Коли обрати</span>
+</div>
+<div class="erow" role="row">
+<span class="ename" role="cell"><b>Laya</b><small>локальна модель r4</small></span>
+<span role="cell">На вашому ПК: CPU або NVIDIA CUDA. Нейромережа mmBERT, ~599 МБ</span>
+<span role="cell"><i class="tag ok">Не потрібен</i></span>
+<span role="cell">Хочете повну автономність і роботу без інтернету</span>
+</div>
+<div class="erow" role="row">
+<span class="ename" role="cell"><b>TypeSafe AI</b><small>хмарний</small></span>
+<span role="cell">Захищений API. Ключ зашифрований Windows DPAPI</span>
+<span role="cell"><i class="tag">Потрібен</i></span>
+<span role="cell">Слабкий ПК і бажання швидкого розпізнавання без завантаження моделі</span>
+</div>
+</div>
+</section>
+<section aria-labelledby="laya-h" class="section split">
+<div>
+<h2 id="laya-h">Laya за чотири кроки</h2>
+<p>Інсталятор може підготувати модель одразу під час першого встановлення. Або зробіть це пізніше з налаштувань. Уже маєте r3? Натисніть <b>Оновити модель</b>: r4 точніша (99,9% слів проти 97,8%), а стару модель буде видалено.</p>
+</div>
+<ol class="steps">
+<li>Відкрийте <b>Налаштування → Як визначати мову → Laya · локально</b>.</li>
+<li>Натисніть <b>Завантажити й підготувати</b>.</li>
+<li>Програма завантажить модель r4 (~<span class="num" data-count="599">599</span> МБ) з <a href="https://github.com/phantasmat2018/Switchcraft-AI/releases/tag/laya-r4">офіційного релізу</a> і перевірить контрольну суму SHA-256.</li>
+<li>Оберіть прискорення: <b>Автоматично</b>, <b>CPU</b> або <b>NVIDIA CUDA</b>. Якщо відеокарту зайняла інша програма (вільно менше 1,5 ГБ), Laya сама перейде на CPU.</li>
+</ol>
+</section>
+<section aria-labelledby="keys-h" class="section" id="keys">
+<div class="section-head">
+<h2 id="keys-h">Шість комбінацій, які варто запам’ятати</h2>
+<p>Усі змінюються в «Налаштування → Гарячі клавіші». <span class="kb-hint">Спробуйте натиснути будь-яку з них просто зараз.</span></p>
+</div>
+<ul class="hotkeys">
+<li data-code="Space"><span class="combo"><kbd>Ctrl</kbd><kbd>Alt</kbd><kbd class="wide">Space</kbd></span><span>Перетворити виділений текст</span></li>
+<li data-code="Backspace"><span class="combo"><kbd>Ctrl</kbd><kbd>Alt</kbd><kbd class="wide">Backspace</kbd></span><span>Скасувати останнє автовиправлення</span></li>
+<li data-code="KeyP"><span class="combo"><kbd>Ctrl</kbd><kbd>Alt</kbd><kbd>P</kbd></span><span>Пауза / відновити роботу</span></li>
+<li data-code="Digit1"><span class="combo"><kbd>Ctrl</kbd><kbd>Alt</kbd><kbd>1</kbd></span><span>Виділення → українська</span></li>
+<li data-code="Digit2"><span class="combo"><kbd>Ctrl</kbd><kbd>Alt</kbd><kbd>2</kbd></span><span>Виділення → англійська</span></li>
+<li data-code="Digit3"><span class="combo"><kbd>Ctrl</kbd><kbd>Alt</kbd><kbd>3</kbd></span><span>Виділення → російська</span></li>
+</ul>
+</section>
+<section aria-labelledby="privacy-h" class="section privacy" id="privacy">
+<h2 id="privacy-h">Він бачить, що ви друкуєте. Тому він нічого не запам’ятовує.</h2>
+<dl class="facts">
+<div><dt>Паролі</dt><dd>Поля паролів, менеджери паролів і захищені форми ігноруються автоматично.</dd></div>
+<div><dt>Текст</dt><dd>Жодного журналювання й жодних набраних паролів на диску.</dd></div>
+<div><dt>Історія</dt><dd>До 50 останніх виправлень, лише в оперативній пам’яті поточної сесії.</dd></div>
+<div><dt>Телеметрія</dt><dd>Немає. Ні сторонньої аналітики, ні «анонімної статистики».</dd></div>
+<div><dt>Ключ API</dt><dd>Ключ TypeSafe шифрується Windows DPAPI для поточного користувача.</dd></div>
+<div><dt>Налаштування</dt><dd>Лежать у <code>%LOCALAPPDATA%\Switchcraft</code>, імпорт та експорт у JSON.</dd></div>
+</dl>
+<div class="proof">
+<div class="proof-head">
+<h3>Перевірте самі</h3>
+<p>Наберіть <span class="mono">ghbdsn</span> в обох полях і натисніть пробіл. Так само поводиться програма: у звичайному полі вона виправить слово, у полі пароля нічого не чіпатиме.</p>
+</div>
+<div class="proof-grid">
+<label class="pf"><span class="pf-l">Звичайне поле</span><input autocomplete="off" id="pf-text" placeholder="ghbdsn" spellcheck="false" type="text"/><span aria-live="polite" class="pf-s" id="pf-text-s">Чекає на пробіл</span></label>
+<label class="pf"><span class="pf-l">Поле пароля</span><input autocomplete="new-password" id="pf-pass" placeholder="ghbdsn" type="password"/><span aria-live="polite" class="pf-s" id="pf-pass-s">Switchcraft сюди не дивиться</span></label>
+</div>
+</div>
+</section>
+<section aria-labelledby="more-h" class="section more">
+<h2 id="more-h">І ще дрібниці, які роблять його своїм</h2>
+<ul class="ticks">
+<li>Зберігає регістр: <span class="mono">Ghbdsn</span> стає <span class="mono">Привіт</span>, а <span class="mono">GHBDSN</span> — <span class="mono">ПРИВІТ</span>.</li>
+<li>Звіряє кожне виправлення з українським і російським словниками Hunspell, щоб не підставити неіснуюче слово.</li>
+<li>Виправляє й слово, набране одразу після кліку чи перемикання вікна; у полях пароля нічого не чіпає.</li>
+<li>Не губить натискання: якщо ви друкуєте далі під час заміни, літери з’являться в тому ж порядку.</li>
+<li>Виправляє й адреси: <span class="mono">пщщпдуюсщь</span> стає <span class="mono">google.com</span> після пробілу або Enter.</li>
+<li>Розпізнає розкладку за нею самою, а не за мовою Windows: працюють і «Русский (Украина)», «English (Ukraine)», Ukrainian Enhanced та Dvorak.</li>
+<li>Перевірено в Chrome і Edge (зокрема Gmail і Telegram Web), Блокноті, Notepad++ і VS Code. Для VS Code увімкніть <span class="mono">"editor.accessibilitySupport": "on"</span> — програма підкаже.</li>
+<li>Працює в редакторах коду на Scintilla: виправлення спрацьовує і на Enter.</li>
+<li>Навчається: скасоване виправлення можна одразу додати до винятків.</li>
+<li>Списки програм-винятків, власні правила й заміни з пошуком.</li>
+<li>Кнопка «Перевірити оновлення» знаходить найновішу стабільну версію на GitHub і чесно каже, якщо перевірка не вдалася.</li>
+<li>Чисте видалення через «Програми та компоненти».</li>
+</ul>
+</section>
+<section aria-labelledby="faq-h" class="section faq" id="faq">
+<h2 id="faq-h">Питання й відповіді</h2>
+<div class="qas">
+<div class="qa"><h3>Що таке Switchcraft AI?</h3><p>Switchcraft AI — програма для Windows 10 і 11, яка автоматично виправляє текст, набраний не в тій розкладці клавіатури, і перемикає розкладку. Наприклад, «ghbdsn» стає «привіт». Підтримує українську, англійську й російську мови та має український інтерфейс.</p></div>
+<div class="qa"><h3>Чим Switchcraft AI відрізняється від Punto Switcher?</h3><p>Switchcraft AI визначає мову за допомогою нейромережі, а не лише словників: локальної моделі Laya (mmBERT), яка працює без інтернету, або хмарного TypeSafe AI. Варіанти додатково звіряються з українським і російським словниками Hunspell. Програма має повністю український інтерфейс і не потребує прав адміністратора.</p></div>
+<div class="qa"><h3>Чи працює Switchcraft AI без інтернету?</h3><p>Так. У режимі Laya нейромережа (~599 МБ) працює повністю на вашому комп’ютері — на процесорі або відеокарті NVIDIA через CUDA. Інтернет потрібен лише для режиму TypeSafe AI і для перевірки оновлень.</p></div>
+<div class="qa"><h3>Чи бачить Switchcraft AI мої паролі?</h3><p>Ні. Поля паролів, менеджери паролів і захищені форми програма пропускає автоматично. Історія виправлень (до 50 записів) зберігається лише в оперативній пам’яті поточного сеансу й зникає після закриття програми.</p></div>
+<div class="qa"><h3>Як скасувати автоматичне виправлення?</h3><p>Натисніть Ctrl + Alt + Backspace — текст повернеться до набраного. Скасоване слово можна одразу додати до винятків, щоб програма більше його не змінювала.</p></div>
+<div class="qa"><h3>Як виправити вже набраний текст?</h3><p>Виділіть текст і натисніть Ctrl + Alt + Space. Ctrl + Alt + 1, 2 або 3 примусово перетворюють виділення на українську, англійську або російську розкладку.</p></div>
+<div class="qa"><h3>Де працює Switchcraft AI?</h3><p>У більшості програм Windows: перевірено справжнім набором у Chrome і Edge (зокрема Gmail і Telegram Web), Блокноті, Notepad++ і VS Code. В адресному рядку браузера виправляються пошукові запити, а адреси на кшталт google.com не змінюються.</p></div>
+<div class="qa"><h3>Скільки коштує Switchcraft AI?</h3><p>Програму можна безкоштовно завантажити з GitHub: інсталятор (~62 МБ) або портативну версію. Вихідний код доступний на GitHub.</p></div>
+</div>
+</section>
+<section aria-labelledby="final-h" class="final calc">
+<p class="calc-kicker">Порахуйте самі</p>
+<h2 id="final-h">Скільки коштує вам <span class="mono wrong">ghbdsn</span>?</h2>
+<div class="calc-box">
+<div class="calc-in">
+<label for="calc-n">Скільки разів на день ви пишете не в тій розкладці</label>
+<div aria-hidden="true" class="calc-n"><span class="odo" data-odo="n">20</span><span class="calc-unit" data-eq="n-w">разів</span></div>
+<input id="calc-n" max="100" min="1" step="1" type="range" value="20"/>
+<p class="calc-note">Кожна помилка — це помітити, стерти, перемкнути розкладку й набрати знову. Рахуємо ~5 секунд і 250 робочих днів на рік.</p>
+</div>
+<div aria-live="polite" class="calc-out">
+<p class="calc-label">Ви втрачаєте за рік</p>
+<p class="calc-big"><span class="odo" data-odo="h">6</span><span class="calc-u">год</span> <span class="odo" data-odo="m">57</span><span class="calc-u">хв</span></p>
+<p class="calc-eq">Це як <span data-eq="films">3,5</span> <i data-eq="films-w">фільму</i> по дві години · <span data-eq="words">5 000</span> <i data-eq="words-w">переписаних слів</i></p>
+<p class="calc-win">Switchcraft виправляє це <b>за мить</b> — після пробілу, сам.</p>
+</div>
+</div>
+<details class="build">
+<summary>Зібрати з вихідного коду</summary>
+<p>Потрібні Windows 10/11 x64, .NET SDK 8.0+ і NSIS 3.10 для інсталятора.</p>
+<div class="codebox"><button aria-label="Скопіювати команди" class="copy" data-copy-target="build-code" type="button"><svg aria-hidden="true" class="ic" fill="currentColor" viewbox="0 0 256 256"><path d="M216,32H88a8,8,0,0,0-8,8V80H40a8,8,0,0,0-8,8V216a8,8,0,0,0,8,8H168a8,8,0,0,0,8-8V176h40a8,8,0,0,0,8-8V40A8,8,0,0,0,216,32ZM160,208H48V96H160Zm48-48H176V88a8,8,0,0,0-8-8H96V48H208Z"></path></svg><span>Копіювати</span></button><pre><code id="build-code">dotnet build src/Switchcraft.csproj -c Release
 .\tools\build-ai-installer.ps1</code></pre></div>
-    </details>
-  </section>
+</details>
+</section>
 </main>
-
 <footer class="foot">
-  <div class="foot-in">
-    <div class="foot-top">
-      <div class="foot-brand">
-        <a class="brand" href="/" aria-label="Switchcraft AI — на початок">
-          <img src="/favicon.svg" width="36" height="36" alt="">
-          <span>Switchcraft <b>AI</b></span>
-        </a>
-        <p>Перемикач розкладки для Windows, який розуміє, якою мовою ви пишете. EN · УК · RU.</p>
-        <a class="btn btn-primary btn-foot" data-dl="setup" href="https://github.com/phantasmat2018/Switchcraft-AI/releases/latest/download/SwitchcraftSetup.exe">Завантажити для Windows</a>
-        <p class="foot-meta"><span>Версія <span data-rel="vnum">1.6.3</span></span><span>Windows 10/11 x64</span><span>Без прав адміністратора</span></p>
-      </div>
-      <nav class="foot-col" aria-label="Розділи сайту">
-        <h3>На сайті</h3>
-        <a href="#engines">Як визначає мову</a>
-        <a href="#keys">Гарячі клавіші</a>
-        <a href="#privacy">Приватність</a>
-        <a href="#faq">Питання й відповіді</a>
-      </nav>
-      <nav class="foot-col" aria-label="Проєкт">
-        <h3>Проєкт</h3>
-        <a href="https://github.com/phantasmat2018/Switchcraft-AI">Вихідний код на GitHub</a>
-        <a href="https://github.com/phantasmat2018/Switchcraft-AI/releases/latest">Усі релізи</a>
-        <a href="https://github.com/phantasmat2018/Switchcraft-AI/releases/tag/laya-r4">Модель Laya r4</a>
-        <a href="https://github.com/phantasmat2018/Switchcraft-AI/blob/main/THIRD-PARTY.md">Сторонні компоненти</a>
-      </nav>
-    </div>
-    <p class="foot-word" aria-hidden="true" data-word="Switchcraft" data-wrong="Іцшесрскфае">Switchcraft</p>
-    <div class="foot-bottom">
-      <span>© 2026 Switchcraft AI · Зроблено в Україні</span>
-      <a class="foot-up" href="#main">Нагору <svg class="ic" aria-hidden="true" viewBox="0 0 256 256" fill="currentColor"><path d="M205.66,117.66a8,8,0,0,1-11.32,0L136,59.31V216a8,8,0,0,1-16,0V59.31L61.66,117.66a8,8,0,0,1-11.32-11.32l72-72a8,8,0,0,1,11.32,0l72,72A8,8,0,0,1,205.66,117.66Z"/></svg></a>
-    </div>
-  </div>
+<div class="foot-in">
+<div class="foot-top">
+<div class="foot-brand">
+<a aria-label="Switchcraft AI — на початок" class="brand" href="/">
+<img alt="" height="36" src="/favicon.svg" width="36"/>
+<span>Switchcraft <b>AI</b></span>
+</a>
+<p>Перемикач розкладки для Windows, який розуміє, якою мовою ви пишете. EN · УК · RU.</p>
+<a class="btn btn-primary btn-foot" data-dl="setup" href="https://github.com/phantasmat2018/Switchcraft-AI/releases/latest/download/SwitchcraftSetup.exe">Завантажити для Windows</a>
+<p class="foot-meta"><span>Версія <span data-rel="vnum">1.6.3</span></span><span>Windows 10/11 x64</span><span>Без прав адміністратора</span></p>
+</div>
+<nav aria-label="Розділи сайту" class="foot-col">
+<h3>На сайті</h3>
+<a href="#engines">Як визначає мову</a>
+<a href="#keys">Гарячі клавіші</a>
+<a href="#privacy">Приватність</a>
+<a href="#faq">Питання й відповіді</a>
+</nav>
+<nav aria-label="Проєкт" class="foot-col">
+<h3>Проєкт</h3>
+<a href="https://github.com/phantasmat2018/Switchcraft-AI">Вихідний код на GitHub</a>
+<a href="https://github.com/phantasmat2018/Switchcraft-AI/releases/latest">Усі релізи</a>
+<a href="https://github.com/phantasmat2018/Switchcraft-AI/releases/tag/laya-r4">Модель Laya r4</a>
+<a href="https://github.com/phantasmat2018/Switchcraft-AI/blob/main/THIRD-PARTY.md">Сторонні компоненти</a>
+</nav>
+</div>
+<p aria-hidden="true" class="foot-word" data-word="Switchcraft" data-wrong="Іцшесрскфае">Switchcraft</p>
+<div class="foot-bottom">
+<span>© 2026 Switchcraft AI · Зроблено в Україні</span>
+<a class="foot-up" href="#main">Нагору <svg aria-hidden="true" class="ic" fill="currentColor" viewbox="0 0 256 256"><path d="M205.66,117.66a8,8,0,0,1-11.32,0L136,59.31V216a8,8,0,0,1-16,0V59.31L61.66,117.66a8,8,0,0,1-11.32-11.32l72-72a8,8,0,0,1,11.32,0l72,72A8,8,0,0,1,205.66,117.66Z"></path></svg></a>
+</div>
+</div>
 </footer>
 </body>
 </html>
