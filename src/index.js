@@ -22,7 +22,7 @@ export default {
     const response = await env.ASSETS.fetch(request);
     const locale = url.pathname.match(/^\/(en|ru)(?:\/|$)/)?.[1];
     if (response.status === 404 && locale) {
-      const fallback = new URL(`/${locale}/404.html`, url);
+      const fallback = new URL(`/${locale}/404`, url);
       const page = await env.ASSETS.fetch(new Request(fallback, request));
       return new Response(page.body, { status: 404, headers: page.headers });
     }
